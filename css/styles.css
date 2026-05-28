@@ -751,6 +751,7 @@ p { margin: 0 0 1em; }
 .product--pack .product__name,
 .product--pack .product__price { color: var(--apple-bg); }
 .product--pack .btn { border-color: var(--apple-bg); background: var(--apple-bg); color: var(--brand-ink); }
+.product--pack .product__media { overflow: hidden; }
 .product__media {
   height: 240px;
   display: flex;
@@ -1283,4 +1284,17 @@ p { margin: 0 0 1em; }
   .stepper { gap: 4px; padding: 4px; }
   .stepper button { width: 40px; height: 40px; font-size: 22px; }
   .stepper__count { min-width: 20px; font-size: 18px; }
+}
+
+/* -------- Tablet (768–980px): restore richer multi-column layouts -------- */
+@media (min-width: 768px) and (max-width: 980px) {
+  .flavors__grid { grid-template-columns: repeat(3, 1fr); gap: 16px; }
+  .flavor-card { padding: 32px 22px 28px; }
+  .flavor-card__name { font-size: 28px; }
+  .reviews__grid { grid-template-columns: repeat(2, 1fr); }
+  .about-pillars__grid { grid-template-columns: repeat(3, 1fr); gap: 20px; }
+  .compare__grid { grid-template-columns: 1fr 1fr; gap: 20px; }
+  .compare__vs { display: grid; }
+  .bundle__grid { grid-template-columns: 1.4fr 1fr; }
+  .bundle__summary { position: sticky; }
 }
