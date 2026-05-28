@@ -1,0 +1,393 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Blackpeak — Bold Flavor, Bottled Fizz</title>
+  <meta name="description" content="Blackpeak is real soda, unapologetically bold. Crisp Green Apple, breezy Mojito, juicy Watermelon — crafted for moments worth fizzing about." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/styles.css" />
+</head>
+<body>
+
+  <!-- =========================
+       NAV
+  ========================= -->
+  <header class="nav">
+    <div class="container">
+      <div class="nav__inner">
+        <a href="index.html" class="nav__logo">BLACKPEAK</a>
+        <nav class="nav__links" aria-label="Primary">
+          <a href="index.html">Home</a>
+          <a href="pages/shop.html">Shop</a>
+          <a href="pages/flavors.html">Flavors</a>
+          <a href="pages/about.html">About</a>
+          <a href="pages/faq.html">FAQ</a>
+        </nav>
+        <div class="nav__cta">
+          <button class="nav__cart" id="cartBtn" aria-label="Cart">
+            CART
+            <span class="nav__cart-badge" id="cartCount">0</span>
+          </button>
+          <button class="nav__burger" id="burger" aria-label="Open menu">☰</button>
+        </div>
+      </div>
+      <div class="nav__mobile" id="navMobile">
+        <a href="index.html">Home</a>
+        <a href="pages/shop.html">Shop</a>
+        <a href="pages/flavors.html">Flavors</a>
+        <a href="pages/about.html">About</a>
+        <a href="pages/faq.html">FAQ</a>
+      </div>
+    </div>
+  </header>
+
+  <!-- =========================
+       MARQUEE
+  ========================= -->
+  <div class="marquee" aria-hidden="true">
+    <div class="marquee__track">
+      <span>Free shipping over $35</span>
+      <span>Just 9g sugar · 50 calories</span>
+      <span>Made with real fruit</span>
+      <span>No artificial anything</span>
+      <span>Now in 3 flavors</span>
+      <span>Free shipping over $35</span>
+      <span>Just 9g sugar · 50 calories</span>
+      <span>Made with real fruit</span>
+      <span>No artificial anything</span>
+      <span>Now in 3 flavors</span>
+    </div>
+  </div>
+
+  <!-- =========================
+       HERO
+  ========================= -->
+  <section class="hero">
+    <div class="container">
+      <div class="hero__grid">
+        <div>
+          <span class="hero__eyebrow">New · Less sugar, real fruit</span>
+          <h1 class="hero__title">
+            <span class="word-1">Real</span><br />
+            <span class="word-2">Fruit</span><br />
+            <span class="word-3">Fizz</span>
+          </h1>
+          <p class="hero__lede">
+            Bold fizz, real fruit, and a fraction of the sugar. Blackpeak tastes
+            like the fruit on the can — just <strong>9g sugar</strong> and
+            <strong>50 calories</strong> a can, with nothing artificial. Soda you
+            don't have to think twice about.
+          </p>
+          <div class="hero__cta-row">
+            <a href="pages/shop.html" class="btn">Shop The Lineup →</a>
+            <a href="pages/flavors.html" class="btn btn--alt">Meet The Flavors</a>
+          </div>
+          <div class="hero__stats">
+            <div>
+              <span class="hero__stat-num">9g</span>
+              <span class="hero__stat-label">Sugar per can</span>
+            </div>
+            <div>
+              <span class="hero__stat-num">50</span>
+              <span class="hero__stat-label">Calories</span>
+            </div>
+            <div>
+              <span class="hero__stat-num">0</span>
+              <span class="hero__stat-label">Artificial junk</span>
+            </div>
+          </div>
+        </div>
+        <div class="can-stage" aria-hidden="false">
+          <div class="can-stage__blob"></div>
+          <img src="images/can-green-apple.png" alt="Blackpeak Green Apple flavored soda 330ml can" class="can-stage__can can-stage__can--apple" />
+          <img src="images/can-mojito.png" alt="Blackpeak Mojito flavored soda 330ml can" class="can-stage__can can-stage__can--mojito" />
+          <img src="images/can-watermelon.png" alt="Blackpeak Watermelon flavored soda 330ml can" class="can-stage__can can-stage__can--watermelon" />
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- =========================
+       PRESS / AS SEEN IN
+  ========================= -->
+  <section class="press">
+    <div class="container">
+      <p class="press__label">As seen in</p>
+      <div class="press__logos">
+        <span class="press__logo press__logo--serif">The Taste</span>
+        <span class="press__logo">FRESH PRESS</span>
+        <span class="press__logo">SIP WEEKLY</span>
+        <span class="press__logo press__logo--serif">Graze</span>
+        <span class="press__logo">FOODING</span>
+        <span class="press__logo">THIRST&nbsp;CO</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- =========================
+       FLAVORS GRID
+  ========================= -->
+  <section class="section flavors" id="flavors">
+    <div class="container">
+      <div class="section__head reveal">
+        <div>
+          <div class="section__eyebrow">The Lineup</div>
+          <h2 class="section__title">Three flavors.<br />Zero compromise.</h2>
+        </div>
+        <p class="section__lede">
+          Each can is engineered for bite, balance, and a finish that doesn't
+          fade. Pick a favorite — or grab the variety pack and stop choosing.
+        </p>
+      </div>
+      <div class="flavors__grid">
+        <article class="flavor-card flavor-card--apple reveal">
+          <span class="flavor-card__tag">Crisp · Tart</span>
+          <div class="flavor-card__can">
+            <img src="images/can-green-apple.png" alt="Green Apple can" />
+          </div>
+          <h3 class="flavor-card__name">Green Apple</h3>
+          <p class="flavor-card__desc">First-bite Granny Smith snap. Bright, tart, and a little mischievous on the finish.</p>
+          <a href="pages/flavors.html#apple" class="flavor-card__cta">Explore Flavor →</a>
+        </article>
+
+        <article class="flavor-card flavor-card--mojito reveal">
+          <span class="flavor-card__tag">Cool · Minty</span>
+          <div class="flavor-card__can">
+            <img src="images/can-mojito.png" alt="Mojito can" />
+          </div>
+          <h3 class="flavor-card__name">Mojito</h3>
+          <p class="flavor-card__desc">Lime, mint, and bubbles doing their thing. Zero rum. All breeze.</p>
+          <a href="pages/flavors.html#mojito" class="flavor-card__cta">Explore Flavor →</a>
+        </article>
+
+        <article class="flavor-card flavor-card--watermelon reveal">
+          <span class="flavor-card__tag">Juicy · Sweet</span>
+          <div class="flavor-card__can">
+            <img src="images/can-watermelon.png" alt="Watermelon can" />
+          </div>
+          <h3 class="flavor-card__name">Watermelon</h3>
+          <p class="flavor-card__desc">Like the first slice on the first warm day. Ripe, juicy, no faking.</p>
+          <a href="pages/flavors.html#watermelon" class="flavor-card__cta">Explore Flavor →</a>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- =========================
+       SUGAR COMPARISON
+  ========================= -->
+  <section class="section compare">
+    <div class="container">
+      <div class="reveal" style="text-align: center; max-width: 680px; margin: 0 auto 48px;">
+        <div class="section__eyebrow">The sweet difference</div>
+        <h2 class="section__title" style="font-size: clamp(38px, 6vw, 76px);">Same fizz.<br />A fraction of the sugar.</h2>
+      </div>
+      <div class="compare__grid reveal">
+        <div class="compare__col compare__col--bad">
+          <div class="compare__name">A regular soda</div>
+          <div class="compare__big">39<small>g</small></div>
+          <div class="compare__big-label">Sugar per can</div>
+          <ul class="compare__list">
+            <li>About 140 calories</li>
+            <li>Corn syrup &amp; additives</li>
+            <li>Artificial colors</li>
+            <li>Hello, sugar crash</li>
+          </ul>
+        </div>
+        <div class="compare__col compare__col--good">
+          <div class="compare__name">Blackpeak</div>
+          <div class="compare__big">9<small>g</small></div>
+          <div class="compare__big-label">Sugar per can</div>
+          <ul class="compare__list">
+            <li>Just 50 calories</li>
+            <li>Real fruit, a touch of cane sugar</li>
+            <li>No artificial colors</li>
+            <li>Light, clean, no crash</li>
+          </ul>
+        </div>
+        <span class="compare__vs" aria-hidden="true">VS</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- =========================
+       STORY
+  ========================= -->
+  <section class="section story">
+    <div class="container">
+      <div class="story__grid">
+        <div class="reveal">
+          <div class="section__eyebrow">Our Story</div>
+          <h2 class="story__title">Soda that<br />tastes like<br />it should.</h2>
+          <p class="story__body">
+            We started Blackpeak because we were tired of pulling a tab and getting
+            <span class="story__highlight">syrup-flavored fizz</span>. So we built
+            a soda the old way — real fruit first, then bubbles, then a tall slim
+            can that fits in your hand like it belongs.
+          </p>
+          <p class="story__body">
+            No flavor labs mimicking candy, no mystery additives, no flood of
+            sugar. Just real fruit, a touch of cane sugar instead of 39 grams of
+            it, and nothing artificial.
+          </p>
+          <a href="pages/about.html" class="btn btn--apple">Read The Story →</a>
+        </div>
+        <div class="story__visual reveal">
+          <img src="images/can-green-apple.png" alt="Featured Green Apple can" />
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- =========================
+       BENEFITS
+  ========================= -->
+  <section class="section benefits">
+    <div class="container">
+      <div class="section__head reveal" style="margin-bottom: 56px;">
+        <div>
+          <div class="section__eyebrow">Why Blackpeak</div>
+          <h2 class="section__title">Less sugar.<br />Zero compromise on flavor.</h2>
+        </div>
+      </div>
+      <div class="benefits__grid">
+        <div class="benefit reveal">
+          <div class="benefit__icon">🍓</div>
+          <h3 class="benefit__title">Real Fruit</h3>
+          <p class="benefit__desc">Built around real fruit, not a flavor packet. Tastes like the fruit on the can.</p>
+        </div>
+        <div class="benefit reveal">
+          <div class="benefit__icon">🍃</div>
+          <h3 class="benefit__title">Just 9g Sugar</h3>
+          <p class="benefit__desc">A fraction of a regular soda's 39g — lightly sweetened with real cane sugar.</p>
+        </div>
+        <div class="benefit reveal">
+          <div class="benefit__icon">✨</div>
+          <h3 class="benefit__title">Nothing Artificial</h3>
+          <p class="benefit__desc">No artificial colors, sweeteners, or mystery additives. Caffeine-free, too.</p>
+        </div>
+        <div class="benefit reveal">
+          <div class="benefit__icon">♻️</div>
+          <h3 class="benefit__title">Recyclable Can</h3>
+          <p class="benefit__desc">Aluminum is infinitely recyclable. We picked the can that comes back.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- =========================
+       REVIEWS
+  ========================= -->
+  <section class="section reviews">
+    <div class="container">
+      <div class="reviews__head reveal">
+        <div class="reviews__stars" aria-hidden="true">★★★★★</div>
+        <p class="reviews__score"><b>4.8 / 5</b> — from 2,400+ happy sippers</p>
+      </div>
+      <div class="reviews__grid">
+        <figure class="review-card review-card--apple reveal">
+          <div class="review-card__stars" aria-hidden="true">★★★★★</div>
+          <blockquote class="review-card__text">"Finally a soda that tastes like <b>actual green apple</b> — not a candy version of it. And I don't get the sugar crash. Obsessed."</blockquote>
+          <figcaption class="review-card__author">
+            <span class="review-card__avatar">M</span>
+            <span class="review-card__meta"><b>Maya R.</b><span>Verified buyer</span></span>
+          </figcaption>
+        </figure>
+        <figure class="review-card review-card--mojito reveal">
+          <div class="review-card__stars" aria-hidden="true">★★★★★</div>
+          <blockquote class="review-card__text">"The Mojito is so refreshing it replaced my afternoon soda habit. <b>9g of sugar</b> and it still tastes like a treat."</blockquote>
+          <figcaption class="review-card__author">
+            <span class="review-card__avatar">J</span>
+            <span class="review-card__meta"><b>Jordan P.</b><span>Verified buyer</span></span>
+          </figcaption>
+        </figure>
+        <figure class="review-card review-card--watermelon reveal">
+          <div class="review-card__stars" aria-hidden="true">★★★★☆</div>
+          <blockquote class="review-card__text">"Watermelon tastes like the real slice, not a popsicle. <b>Whole family drinks it</b> — and I feel fine giving it to the kids."</blockquote>
+          <figcaption class="review-card__author">
+            <span class="review-card__avatar">D</span>
+            <span class="review-card__meta"><b>Dana L.</b><span>Verified buyer</span></span>
+          </figcaption>
+        </figure>
+      </div>
+    </div>
+  </section>
+
+  <!-- =========================
+       NEWSLETTER
+  ========================= -->
+  <section class="section newsletter">
+    <span class="newsletter__doodle newsletter__doodle--1">🍉</span>
+    <span class="newsletter__doodle newsletter__doodle--2">🌿</span>
+    <div class="container">
+      <div class="newsletter__inner reveal">
+        <h2 class="newsletter__title">Join the<br />fizz list.</h2>
+        <p class="newsletter__lede">
+          New flavors, restocks, and early-access drops. No fluff — just the
+          stuff worth opening.
+        </p>
+        <form class="newsletter__form" id="newsletterForm">
+          <input type="email" placeholder="your@email.com" required aria-label="Email address" />
+          <button type="submit" class="btn btn--pop">Subscribe</button>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <!-- =========================
+       FOOTER
+  ========================= -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer__grid">
+        <div>
+          <div class="footer__brand">BLACKPEAK</div>
+          <p class="footer__tagline">Real flavor, bold fizz, zero compromise. A soda built for the moments worth opening.</p>
+          <div class="footer__social">
+            <a href="#" aria-label="Instagram">IG</a>
+            <a href="#" aria-label="TikTok">TT</a>
+            <a href="#" aria-label="X">X</a>
+            <a href="#" aria-label="YouTube">YT</a>
+          </div>
+        </div>
+        <div class="footer__col">
+          <h4>Shop</h4>
+          <ul>
+            <li><a href="pages/shop.html">All Sodas</a></li>
+            <li><a href="pages/shop.html">Variety Pack</a></li>
+            <li><a href="pages/shop.html">Subscriptions</a></li>
+            <li><a href="pages/shop.html">Bundles</a></li>
+          </ul>
+        </div>
+        <div class="footer__col">
+          <h4>Company</h4>
+          <ul>
+            <li><a href="pages/about.html">Our Story</a></li>
+            <li><a href="pages/about.html">Mission</a></li>
+            <li><a href="#">Wholesale</a></li>
+            <li><a href="#">Press</a></li>
+          </ul>
+        </div>
+        <div class="footer__col">
+          <h4>Support</h4>
+          <ul>
+            <li><a href="pages/faq.html">FAQ</a></li>
+            <li><a href="#">Shipping</a></li>
+            <li><a href="#">Returns</a></li>
+            <li><a href="#">Contact</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer__bottom">
+        <span>© 2026 Blackpeak Beverage Co. All rights reserved.</span>
+        <span>Designed with fizz · Built in 2026</span>
+      </div>
+    </div>
+  </footer>
+
+  <script src="js/script.js"></script>
+</body>
+</html>

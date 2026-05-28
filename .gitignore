@@ -1,0 +1,12 @@
+# macOS
+.DS_Store
+
+# Logs
+*.log
+
+# Windows
+Thumbs.db
+
+# Editor
+.vscode/
+.idea/

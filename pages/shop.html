@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Shop — Blackpeak</title>
+  <meta name="description" content="Shop Blackpeak Soda: Green Apple, Mojito, Watermelon, and the variety pack. Tall slim 330ml cans, small-batch fresh." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="../css/styles.css" />
+</head>
+<body>
+
+  <header class="nav">
+    <div class="container">
+      <div class="nav__inner">
+        <a href="../index.html" class="nav__logo">BLACKPEAK</a>
+        <nav class="nav__links" aria-label="Primary">
+          <a href="../index.html">Home</a>
+          <a href="shop.html">Shop</a>
+          <a href="flavors.html">Flavors</a>
+          <a href="about.html">About</a>
+          <a href="faq.html">FAQ</a>
+        </nav>
+        <div class="nav__cta">
+          <button class="nav__cart" id="cartBtn" aria-label="Cart">
+            CART
+            <span class="nav__cart-badge" id="cartCount">0</span>
+          </button>
+          <button class="nav__burger" id="burger" aria-label="Open menu">☰</button>
+        </div>
+      </div>
+      <div class="nav__mobile" id="navMobile">
+        <a href="../index.html">Home</a>
+        <a href="shop.html">Shop</a>
+        <a href="flavors.html">Flavors</a>
+        <a href="about.html">About</a>
+        <a href="faq.html">FAQ</a>
+      </div>
+    </div>
+  </header>
+
+  <section class="page-hero page-hero--apple">
+    <div class="container">
+      <h1 class="page-hero__title">The Shop</h1>
+      <p class="page-hero__lede">Pick a pack. Single flavors, mixed cases, or the full Blackpeak experience.</p>
+    </div>
+  </section>
+
+  <section class="section shop">
+    <div class="container">
+      <div class="shop__grid">
+
+        <article class="product product--apple reveal">
+          <span class="product__tag">Bestseller</span>
+          <div class="product__media">
+            <img src="../images/can-green-apple.png" alt="Green Apple can" />
+          </div>
+          <h3 class="product__name">Green Apple — 12 pack</h3>
+          <p class="product__sub">Crisp, tart, snap finish · 330ml × 12</p>
+          <p class="product__price">$32.00</p>
+          <button class="btn btn--apple product__btn" data-add="Green Apple 12-pack">Add to Cart</button>
+        </article>
+
+        <article class="product product--mojito reveal">
+          <div class="product__media">
+            <img src="../images/can-mojito.png" alt="Mojito can" />
+          </div>
+          <h3 class="product__name">Mojito — 12 pack</h3>
+          <p class="product__sub">Lime, mint, breezy fizz · 330ml × 12</p>
+          <p class="product__price">$32.00</p>
+          <button class="btn btn--mojito product__btn" data-add="Mojito 12-pack">Add to Cart</button>
+        </article>
+
+        <article class="product product--watermelon reveal">
+          <div class="product__media">
+            <img src="../images/can-watermelon.png" alt="Watermelon can" />
+          </div>
+          <h3 class="product__name">Watermelon — 12 pack</h3>
+          <p class="product__sub">Juicy, sweet, true fruit · 330ml × 12</p>
+          <p class="product__price">$32.00</p>
+          <button class="btn btn--pop product__btn" data-add="Watermelon 12-pack">Add to Cart</button>
+        </article>
+
+        <article class="product product--pack reveal">
+          <span class="product__tag" style="background: var(--apple-bg); color: var(--brand-ink);">Best Value</span>
+          <div class="product__media" style="display:flex; justify-content:center; align-items:flex-end; gap:-30px;">
+            <img src="../images/can-green-apple.png" alt="Green Apple" style="height:80%; transform:translateX(20px) rotate(-8deg);" />
+            <img src="../images/can-mojito.png" alt="Mojito" style="height:100%; z-index:2;" />
+            <img src="../images/can-watermelon.png" alt="Watermelon" style="height:80%; transform:translateX(-20px) rotate(8deg);" />
+          </div>
+          <h3 class="product__name">Variety 12 pack</h3>
+          <p class="product__sub">4 of each. The full Blackpeak lineup · 330ml × 12</p>
+          <p class="product__price">$30.00</p>
+          <button class="btn product__btn" data-add="Variety 12-pack">Add to Cart</button>
+        </article>
+
+        <article class="product product--apple reveal">
+          <div class="product__media">
+            <img src="../images/can-green-apple.png" alt="Green Apple can" style="transform: rotate(-4deg);" />
+          </div>
+          <h3 class="product__name">Green Apple — 24 case</h3>
+          <p class="product__sub">Stock up. Save 15% · 330ml × 24</p>
+          <p class="product__price">$56.00</p>
+          <button class="btn btn--apple product__btn" data-add="Green Apple 24-case">Add to Cart</button>
+        </article>
+
+        <article class="product product--mojito reveal">
+          <div class="product__media">
+            <img src="../images/can-mojito.png" alt="Mojito can" style="transform: rotate(-4deg);" />
+          </div>
+          <h3 class="product__name">Mojito — 24 case</h3>
+          <p class="product__sub">Stock up. Save 15% · 330ml × 24</p>
+          <p class="product__price">$56.00</p>
+          <button class="btn btn--mojito product__btn" data-add="Mojito 24-case">Add to Cart</button>
+        </article>
+
+        <article class="product product--watermelon reveal">
+          <div class="product__media">
+            <img src="../images/can-watermelon.png" alt="Watermelon can" style="transform: rotate(-4deg);" />
+          </div>
+          <h3 class="product__name">Watermelon — 24 case</h3>
+          <p class="product__sub">Stock up. Save 15% · 330ml × 24</p>
+          <p class="product__price">$56.00</p>
+          <button class="btn btn--pop product__btn" data-add="Watermelon 24-case">Add to Cart</button>
+        </article>
+
+        <article class="product product--pack reveal">
+          <span class="product__tag" style="background: var(--mojito-pop); color: #fff;">Subscribe & save</span>
+          <div class="product__media" style="display:flex; justify-content:center; align-items:flex-end;">
+            <img src="../images/can-mojito.png" alt="Subscription bundle" style="height:100%;" />
+          </div>
+          <h3 class="product__name">Monthly Drop</h3>
+          <p class="product__sub">Variety case shipped every month · cancel anytime</p>
+          <p class="product__price">$26.00 / mo</p>
+          <button class="btn product__btn" data-add="Monthly Drop subscription">Subscribe</button>
+        </article>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- BUILD YOUR OWN 12-PACK -->
+  <section class="section bundle">
+    <div class="container">
+      <div class="reveal" style="text-align: center; max-width: 640px; margin: 0 auto 44px;">
+        <div class="section__eyebrow">Mix &amp; match</div>
+        <h2 class="section__title" style="font-size: clamp(38px, 6vw, 72px);">Build your own<br />12-pack.</h2>
+        <p class="section__lede" style="margin: 14px auto 0;">Can't pick a favorite? Don't. Choose any mix of the three flavors — 12 cans, one box, free shipping.</p>
+      </div>
+      <div class="bundle__grid">
+        <div class="bundle__builder reveal" id="bundleBuilder">
+          <div class="bundle-row bundle-row--apple">
+            <div class="bundle-row__can"><img src="../images/can-green-apple.png" alt="Green Apple can" /></div>
+            <div class="bundle-row__info">
+              <div class="bundle-row__name">Green Apple</div>
+              <div class="bundle-row__desc">Crisp · tart · 9g sugar</div>
+            </div>
+            <div class="stepper" data-flavor="Green Apple">
+              <button type="button" class="stepper__minus" aria-label="Remove one Green Apple">−</button>
+              <span class="stepper__count" data-count>0</span>
+              <button type="button" class="stepper__plus" aria-label="Add one Green Apple">+</button>
+            </div>
+          </div>
+          <div class="bundle-row bundle-row--mojito">
+            <div class="bundle-row__can"><img src="../images/can-mojito.png" alt="Mojito can" /></div>
+            <div class="bundle-row__info">
+              <div class="bundle-row__name">Mojito</div>
+              <div class="bundle-row__desc">Cool · minty · 9g sugar</div>
+            </div>
+            <div class="stepper" data-flavor="Mojito">
+              <button type="button" class="stepper__minus" aria-label="Remove one Mojito">−</button>
+              <span class="stepper__count" data-count>0</span>
+              <button type="button" class="stepper__plus" aria-label="Add one Mojito">+</button>
+            </div>
+          </div>
+          <div class="bundle-row bundle-row--watermelon">
+            <div class="bundle-row__can"><img src="../images/can-watermelon.png" alt="Watermelon can" /></div>
+            <div class="bundle-row__info">
+              <div class="bundle-row__name">Watermelon</div>
+              <div class="bundle-row__desc">Juicy · sweet · 9g sugar</div>
+            </div>
+            <div class="stepper" data-flavor="Watermelon">
+              <button type="button" class="stepper__minus" aria-label="Remove one Watermelon">−</button>
+              <span class="stepper__count" data-count>0</span>
+              <button type="button" class="stepper__plus" aria-label="Add one Watermelon">+</button>
+            </div>
+          </div>
+        </div>
+        <aside class="bundle__summary reveal">
+          <h3>Your box</h3>
+          <p>Pick 12 cans to check out.</p>
+          <div class="bundle__progress"><div class="bundle__progress-bar" id="bundleBar"></div></div>
+          <p class="bundle__count-txt"><b id="bundleCount">0</b> / 12 cans selected</p>
+          <div class="bundle__price">$34<small>.00</small></div>
+          <p class="bundle__note">Free shipping · ships in 1 business day</p>
+          <button class="btn bundle__add" id="bundleAdd" data-add-bundle disabled>Add 12 more to fill the box</button>
+        </aside>
+      </div>
+    </div>
+  </section>
+
+  <section class="section newsletter">
+    <span class="newsletter__doodle newsletter__doodle--1">🥤</span>
+    <span class="newsletter__doodle newsletter__doodle--2">✨</span>
+    <div class="container">
+      <div class="newsletter__inner reveal">
+        <h2 class="newsletter__title">First sip,<br />first dibs.</h2>
+        <p class="newsletter__lede">Subscribe for early access to new flavors, limited drops, and restock alerts.</p>
+        <form class="newsletter__form" id="newsletterForm">
+          <input type="email" placeholder="your@email.com" required aria-label="Email" />
+          <button type="submit" class="btn btn--pop">Subscribe</button>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <div class="container">
+      <div class="footer__grid">
+        <div>
+          <div class="footer__brand">BLACKPEAK</div>
+          <p class="footer__tagline">Real flavor, bold fizz, zero compromise.</p>
+          <div class="footer__social">
+            <a href="#">IG</a><a href="#">TT</a><a href="#">X</a><a href="#">YT</a>
+          </div>
+        </div>
+        <div class="footer__col">
+          <h4>Shop</h4>
+          <ul>
+            <li><a href="shop.html">All Sodas</a></li>
+            <li><a href="shop.html">Variety Pack</a></li>
+            <li><a href="shop.html">Subscriptions</a></li>
+          </ul>
+        </div>
+        <div class="footer__col">
+          <h4>Company</h4>
+          <ul>
+            <li><a href="about.html">Our Story</a></li>
+            <li><a href="about.html">Mission</a></li>
+            <li><a href="#">Wholesale</a></li>
+          </ul>
+        </div>
+        <div class="footer__col">
+          <h4>Support</h4>
+          <ul>
+            <li><a href="faq.html">FAQ</a></li>
+            <li><a href="#">Shipping</a></li>
+            <li><a href="#">Contact</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer__bottom">
+        <span>© 2026 Blackpeak Beverage Co.</span>
+        <span>Built in 2026</span>
+      </div>
+    </div>
+  </footer>
+
+  <script src="../js/script.js"></script>
+</body>
+</html>
