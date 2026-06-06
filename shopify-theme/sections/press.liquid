@@ -1,0 +1,54 @@
+<section class="press">
+  <div class="container">
+    {%- if section.settings.label != blank -%}
+      <p class="press__label">{{ section.settings.label }}</p>
+    {%- endif -%}
+    <div class="press__logos">
+      {%- for block in section.blocks -%}
+        <span class="press__logo{% if block.settings.style == 'serif' %} press__logo--serif{% endif %}" {{ block.shopify_attributes }}>{{ block.settings.name }}</span>
+      {%- endfor -%}
+    </div>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Press bar",
+  "settings": [
+    { "type": "text", "id": "label", "label": "Label", "default": "As seen in" }
+  ],
+  "blocks": [
+    {
+      "type": "logo",
+      "name": "Logo (text)",
+      "settings": [
+        { "type": "text", "id": "name", "label": "Name", "default": "PUBLICATION" },
+        {
+          "type": "select",
+          "id": "style",
+          "label": "Style",
+          "options": [
+            { "value": "sans", "label": "Sans (Fredoka)" },
+            { "value": "serif", "label": "Serif italic" }
+          ],
+          "default": "sans"
+        }
+      ]
+    }
+  ],
+  "max_blocks": 12,
+  "presets": [
+    {
+      "name": "Press bar",
+      "blocks": [
+        { "type": "logo", "settings": { "name": "The Taste", "style": "serif" } },
+        { "type": "logo", "settings": { "name": "FRESH PRESS", "style": "sans" } },
+        { "type": "logo", "settings": { "name": "SIP WEEKLY", "style": "sans" } },
+        { "type": "logo", "settings": { "name": "Graze", "style": "serif" } },
+        { "type": "logo", "settings": { "name": "FOODING", "style": "sans" } },
+        { "type": "logo", "settings": { "name": "THIRST CO", "style": "sans" } }
+      ]
+    }
+  ]
+}
+{% endschema %}

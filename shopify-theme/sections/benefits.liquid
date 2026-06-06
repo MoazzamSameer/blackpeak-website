@@ -1,0 +1,52 @@
+<section class="section benefits">
+  <div class="container">
+    <div class="section__head reveal" style="margin-bottom: 56px;">
+      <div>
+        <div class="section__eyebrow">{{ section.settings.eyebrow }}</div>
+        <h2 class="section__title">{{ section.settings.title | newline_to_br }}</h2>
+      </div>
+    </div>
+    <div class="benefits__grid">
+      {%- for block in section.blocks -%}
+        <div class="benefit reveal" {{ block.shopify_attributes }}>
+          <div class="benefit__icon">{{ block.settings.icon }}</div>
+          <h3 class="benefit__title">{{ block.settings.title }}</h3>
+          <p class="benefit__desc">{{ block.settings.desc }}</p>
+        </div>
+      {%- endfor -%}
+    </div>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Benefits",
+  "settings": [
+    { "type": "text", "id": "eyebrow", "label": "Eyebrow", "default": "Why Blackpeak" },
+    { "type": "text", "id": "title", "label": "Title", "default": "Less sugar.\nZero compromise on flavor." }
+  ],
+  "blocks": [
+    {
+      "type": "benefit",
+      "name": "Benefit",
+      "settings": [
+        { "type": "text", "id": "icon", "label": "Icon (emoji)", "default": "🍓" },
+        { "type": "text", "id": "title", "label": "Title", "default": "Real Fruit" },
+        { "type": "textarea", "id": "desc", "label": "Description", "default": "Built around real fruit, not a flavor packet. Tastes like the fruit on the can." }
+      ]
+    }
+  ],
+  "max_blocks": 8,
+  "presets": [
+    {
+      "name": "Benefits",
+      "blocks": [
+        { "type": "benefit", "settings": { "icon": "🍓", "title": "Real Fruit", "desc": "Built around real fruit, not a flavor packet. Tastes like the fruit on the can." } },
+        { "type": "benefit", "settings": { "icon": "🍃", "title": "Just 9g Sugar", "desc": "A fraction of a regular soda's 39g — lightly sweetened with real cane sugar." } },
+        { "type": "benefit", "settings": { "icon": "✨", "title": "Nothing Artificial", "desc": "No artificial colors, sweeteners, or mystery additives. Caffeine-free, too." } },
+        { "type": "benefit", "settings": { "icon": "♻️", "title": "Recyclable Can", "desc": "Aluminum is infinitely recyclable. We picked the can that comes back." } }
+      ]
+    }
+  ]
+}
+{% endschema %}

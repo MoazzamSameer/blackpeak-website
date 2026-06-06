@@ -1,0 +1,35 @@
+{%- assign t = section.settings.title -%}
+{%- if t == blank -%}{%- assign t = page.title -%}{%- endif -%}
+
+<section class="page-hero page-hero--{{ section.settings.theme }}">
+  <div class="container">
+    <h1 class="page-hero__title">{{ t | newline_to_br }}</h1>
+    {%- if section.settings.lede != blank -%}
+      <p class="page-hero__lede">{{ section.settings.lede }}</p>
+    {%- endif -%}
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Page hero",
+  "settings": [
+    {
+      "type": "select",
+      "id": "theme",
+      "label": "Color theme",
+      "options": [
+        { "value": "apple", "label": "Apple (green)" },
+        { "value": "mojito", "label": "Mojito (aqua)" },
+        { "value": "watermelon", "label": "Watermelon (pink)" }
+      ],
+      "default": "apple"
+    },
+    { "type": "text", "id": "title", "label": "Title", "info": "Use \\n for line breaks. Falls back to the page title." },
+    { "type": "textarea", "id": "lede", "label": "Lede" }
+  ],
+  "presets": [
+    { "name": "Page hero" }
+  ]
+}
+{% endschema %}

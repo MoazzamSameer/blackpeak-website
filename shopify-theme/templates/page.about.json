@@ -1,0 +1,57 @@
+{
+  "sections": {
+    "page-hero": {
+      "type": "page-hero",
+      "settings": {
+        "theme": "mojito",
+        "title": "Our\nStory",
+        "lede": "We built Blackpeak because the soda aisle had stopped trying."
+      }
+    },
+    "story-1": {
+      "type": "about-content",
+      "settings": {
+        "theme": "mojito",
+        "reverse": false,
+        "eyebrow": "Where it started",
+        "title": "A can that doesn't\nlie about what's in it.",
+        "body": "<p>In 2025, a few of us got tired of opening sodas that tasted nothing like the fruit on the front. The apple was candy. The watermelon was Jolly Rancher. The mojito had never seen a mint leaf in its life. So we did the obvious thing: we built our own.</p><p>We started in a small kitchen with three flavor briefs, twelve bad prototypes, and two stubborn rules — taste like the actual fruit, and do it with a fraction of the sugar. Miss either, and it doesn't ship.</p>",
+        "default_can": "can-mojito.png",
+        "image_alt": "BlackPeak Mojito can"
+      }
+    },
+    "pillars": {
+      "type": "pillars",
+      "blocks": {
+        "p1": { "type": "pillar", "settings": { "number": "01", "title": "Flavor first", "body": "Every can starts with the fruit. The fizz, the sweetness, the finish — those follow. Not the other way around." } },
+        "p2": { "type": "pillar", "settings": { "number": "02", "title": "Small batches", "body": "We don't ship pallets of last quarter. Every run is fresh, dated, and made in volumes we can keep an eye on." } },
+        "p3": { "type": "pillar", "settings": { "number": "03", "title": "Honest labels", "body": "Reduced sugar, all-natural, nothing fake — and we won't pretend it's a green juice. Just real-fruit soda that goes easy on the sugar." } }
+      },
+      "block_order": ["p1", "p2", "p3"]
+    },
+    "story-2": {
+      "type": "about-content",
+      "settings": {
+        "theme": "watermelon",
+        "reverse": true,
+        "eyebrow": "Where we're going",
+        "title": "Three flavors today.\nMore coming.",
+        "body": "<p>We launched with the three flavors we'd actually drink. That's the bar. Anything we add has to clear it — which is harder than it sounds and explains why we're not racing to twelve SKUs.</p><p>Get on the fizz list and we'll tell you first when the next one is ready. We're working on a few. They're not ready yet. They will be.</p>",
+        "cta_text": "Shop The Lineup",
+        "default_can": "can-watermelon.png",
+        "image_alt": "BlackPeak Watermelon can"
+      }
+    },
+    "stats": {
+      "type": "stat-strip",
+      "blocks": {
+        "s1": { "type": "stat", "settings": { "number": "2025", "label": "Founded" } },
+        "s2": { "type": "stat", "settings": { "number": "3", "label": "Flavors live" } },
+        "s3": { "type": "stat", "settings": { "number": "100%", "label": "Recyclable cans" } },
+        "s4": { "type": "stat", "settings": { "number": "9g", "label": "Sugar per can" } }
+      },
+      "block_order": ["s1", "s2", "s3", "s4"]
+    }
+  },
+  "order": ["page-hero", "story-1", "pillars", "story-2", "stats"]
+}

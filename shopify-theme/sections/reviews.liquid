@@ -1,0 +1,65 @@
+<section class="section reviews">
+  <div class="container">
+    <div class="reviews__head reveal">
+      <div class="reviews__stars" aria-hidden="true">{{ section.settings.aggregate_stars }}</div>
+      <p class="reviews__score"><b>{{ section.settings.score }}</b> {{ section.settings.score_suffix }}</p>
+    </div>
+    <div class="reviews__grid">
+      {%- for block in section.blocks -%}
+        <figure class="review-card review-card--{{ block.settings.theme }} reveal" {{ block.shopify_attributes }}>
+          <div class="review-card__stars" aria-hidden="true">{{ block.settings.stars }}</div>
+          <blockquote class="review-card__text">{{ block.settings.text }}</blockquote>
+          <figcaption class="review-card__author">
+            <span class="review-card__avatar">{{ block.settings.author | slice: 0 | upcase }}</span>
+            <span class="review-card__meta"><b>{{ block.settings.author }}</b><span>{{ block.settings.meta }}</span></span>
+          </figcaption>
+        </figure>
+      {%- endfor -%}
+    </div>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Reviews",
+  "settings": [
+    { "type": "text", "id": "aggregate_stars", "label": "Aggregate stars", "default": "★★★★★" },
+    { "type": "text", "id": "score", "label": "Score (bold)", "default": "4.8 / 5" },
+    { "type": "text", "id": "score_suffix", "label": "Score suffix", "default": "— from 2,400+ happy sippers" }
+  ],
+  "blocks": [
+    {
+      "type": "review",
+      "name": "Review",
+      "settings": [
+        {
+          "type": "select",
+          "id": "theme",
+          "label": "Color theme",
+          "options": [
+            { "value": "apple", "label": "Apple (green)" },
+            { "value": "mojito", "label": "Mojito (aqua)" },
+            { "value": "watermelon", "label": "Watermelon (pink)" }
+          ],
+          "default": "apple"
+        },
+        { "type": "text", "id": "stars", "label": "Stars", "default": "★★★★★" },
+        { "type": "richtext", "id": "text", "label": "Review text", "default": "<p>\"Finally a soda that tastes like <b>actual green apple</b> — not a candy version of it. And I don't get the sugar crash. Obsessed.\"</p>" },
+        { "type": "text", "id": "author", "label": "Author name", "default": "Maya R." },
+        { "type": "text", "id": "meta", "label": "Author meta", "default": "Verified buyer" }
+      ]
+    }
+  ],
+  "max_blocks": 6,
+  "presets": [
+    {
+      "name": "Reviews",
+      "blocks": [
+        { "type": "review", "settings": { "theme": "apple", "stars": "★★★★★", "author": "Maya R.", "meta": "Verified buyer" } },
+        { "type": "review", "settings": { "theme": "mojito", "stars": "★★★★★", "author": "Jordan P.", "meta": "Verified buyer" } },
+        { "type": "review", "settings": { "theme": "watermelon", "stars": "★★★★☆", "author": "Dana L.", "meta": "Verified buyer" } }
+      ]
+    }
+  ]
+}
+{% endschema %}

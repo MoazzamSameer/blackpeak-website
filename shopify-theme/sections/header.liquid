@@ -1,0 +1,42 @@
+<header class="nav">
+  <div class="container">
+    <div class="nav__inner">
+      <a href="{{ routes.root_url }}" class="nav__logo">{{ shop.name | default: 'BLACKPEAK' | upcase }}</a>
+      <nav class="nav__links" aria-label="Primary">
+        {%- for link in section.settings.menu.links -%}
+          <a href="{{ link.url }}"{% if link.current %} aria-current="page"{% endif %}>{{ link.title }}</a>
+        {%- endfor -%}
+      </nav>
+      <div class="nav__cta">
+        <a href="{{ routes.cart_url }}" class="nav__cart" id="cartBtn" aria-label="{{ 'general.cart.title' | t }}">
+          CART
+          <span class="nav__cart-badge" id="cartCount">{{ cart.item_count }}</span>
+        </a>
+        <button class="nav__burger" id="burger" aria-label="Open menu" type="button">☰</button>
+      </div>
+    </div>
+    <div class="nav__mobile" id="navMobile">
+      {%- for link in section.settings.menu.links -%}
+        <a href="{{ link.url }}">{{ link.title }}</a>
+      {%- endfor -%}
+    </div>
+  </div>
+</header>
+
+{% schema %}
+{
+  "name": "Header",
+  "settings": [
+    {
+      "type": "link_list",
+      "id": "menu",
+      "label": "Menu",
+      "default": "main-menu",
+      "info": "Choose a navigation menu in Online Store > Navigation. Recommended links: Home, Shop, Flavors, About, FAQ."
+    }
+  ],
+  "presets": [
+    { "name": "Header" }
+  ]
+}
+{% endschema %}

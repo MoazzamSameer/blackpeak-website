@@ -1,0 +1,52 @@
+<section class="page-hero page-hero--apple">
+  <div class="container">
+    <h1 class="page-hero__title">Your Cart</h1>
+  </div>
+</section>
+
+<section class="section" style="background: var(--brand-paper);">
+  <div class="container">
+    {%- if cart.item_count == 0 -%}
+      <div style="text-align: center; padding: 40px 0;">
+        <p style="font-size: 20px; margin-bottom: 24px;">{{ 'general.cart.empty' | t }}</p>
+        <a href="{{ routes.all_products_collection_url }}" class="btn">Shop the lineup →</a>
+      </div>
+    {%- else -%}
+      <form action="{{ routes.cart_url }}" method="post" novalidate class="cart-form">
+        <div class="cart__items" style="display: flex; flex-direction: column; gap: 16px; margin-bottom: 32px;">
+          {%- for item in cart.items -%}
+            <div class="cart__item" style="display: grid; grid-template-columns: 88px 1fr auto; gap: 20px; align-items: center; background: var(--brand-cream); border-radius: var(--radius-card); padding: 16px 20px; box-shadow: var(--shadow-card);">
+              <a href="{{ item.url }}">
+                {%- if item.image != blank -%}
+                  <img src="{{ item.image | image_url: width: 176 }}" alt="{{ item.title | escape }}" style="width: 88px; height: auto; border-radius: 12px;" />
+                {%- endif -%}
+              </a>
+              <div>
+                <a href="{{ item.url }}" style="font-family: var(--font-display); font-weight: 700; font-size: 20px; color: var(--brand-ink);">{{ item.product.title }}</a>
+                {%- unless item.variant.title contains 'Default' -%}
+                  <div style="font-size: 14px; color: var(--brand-ink-soft);">{{ item.variant.title }}</div>
+                {%- endunless -%}
+                <div style="font-size: 14px; color: var(--brand-ink-soft);">{{ item.final_price | money }} each</div>
+                <a href="{{ item.url_to_remove }}" style="font-size: 13px; color: var(--watermelon-deep); font-weight: 700;">Remove</a>
+              </div>
+              <div style="text-align: right;">
+                <input type="number" name="updates[]" value="{{ item.quantity }}" min="0" aria-label="Quantity for {{ item.title | escape }}" style="width: 64px; padding: 8px; border-radius: 10px; border: 2px solid var(--brand-ink); font: inherit; text-align: center;" />
+                <div style="font-family: var(--font-display); font-weight: 700; font-size: 18px; margin-top: 8px;">{{ item.final_line_price | money }}</div>
+              </div>
+            </div>
+          {%- endfor -%}
+        </div>
+        <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 16px; border-top: 1.5px dashed rgba(23,58,35,0.25); padding-top: 24px;">
+          <div>
+            <span style="font-size: 15px; color: var(--brand-ink-soft);">{{ 'general.cart.subtotal' | t }}</span>
+            <div style="font-family: var(--font-display); font-weight: 700; font-size: 32px;">{{ cart.total_price | money }}</div>
+          </div>
+          <div style="display: flex; gap: 12px; flex-wrap: wrap;">
+            <button type="submit" name="update" class="btn btn--alt">Update</button>
+            <button type="submit" name="checkout" class="btn">{{ 'general.cart.checkout' | t }} →</button>
+          </div>
+        </div>
+      </form>
+    {%- endif -%}
+  </div>
+</section>

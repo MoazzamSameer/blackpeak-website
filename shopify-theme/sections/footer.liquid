@@ -1,0 +1,77 @@
+<footer class="footer">
+  <div class="container">
+    <div class="footer__grid">
+      <div>
+        <div class="footer__brand">{{ shop.name | default: 'BLACKPEAK' | upcase }}</div>
+        <p class="footer__tagline">{{ section.settings.tagline }}</p>
+        <div class="footer__social">
+          {%- if section.settings.instagram != blank -%}<a href="{{ section.settings.instagram }}" aria-label="Instagram" target="_blank" rel="noopener">IG</a>{%- endif -%}
+          {%- if section.settings.tiktok != blank -%}<a href="{{ section.settings.tiktok }}" aria-label="TikTok" target="_blank" rel="noopener">TT</a>{%- endif -%}
+          {%- if section.settings.twitter != blank -%}<a href="{{ section.settings.twitter }}" aria-label="X" target="_blank" rel="noopener">X</a>{%- endif -%}
+          {%- if section.settings.youtube != blank -%}<a href="{{ section.settings.youtube }}" aria-label="YouTube" target="_blank" rel="noopener">YT</a>{%- endif -%}
+        </div>
+      </div>
+      <div class="footer__col">
+        <h4>{{ section.settings.shop_heading }}</h4>
+        <ul>
+          {%- for link in section.settings.shop_menu.links -%}
+            <li><a href="{{ link.url }}">{{ link.title }}</a></li>
+          {%- endfor -%}
+        </ul>
+      </div>
+      <div class="footer__col">
+        <h4>{{ section.settings.company_heading }}</h4>
+        <ul>
+          {%- for link in section.settings.company_menu.links -%}
+            <li><a href="{{ link.url }}">{{ link.title }}</a></li>
+          {%- endfor -%}
+        </ul>
+      </div>
+      <div class="footer__col">
+        <h4>{{ section.settings.support_heading }}</h4>
+        <ul>
+          {%- for link in section.settings.support_menu.links -%}
+            <li><a href="{{ link.url }}">{{ link.title }}</a></li>
+          {%- endfor -%}
+        </ul>
+      </div>
+    </div>
+    <div class="footer__bottom">
+      <span>© {{ 'now' | date: '%Y' }} {{ shop.name }}. All rights reserved.</span>
+      <span>{{ section.settings.tagline_right }}</span>
+    </div>
+  </div>
+</footer>
+
+{% schema %}
+{
+  "name": "Footer",
+  "settings": [
+    {
+      "type": "text",
+      "id": "tagline",
+      "label": "Tagline",
+      "default": "Real flavor, bold fizz, less sugar. A soda built for the moments worth opening."
+    },
+    { "type": "header", "content": "Social" },
+    { "type": "url", "id": "instagram", "label": "Instagram URL" },
+    { "type": "url", "id": "tiktok", "label": "TikTok URL" },
+    { "type": "url", "id": "twitter", "label": "X / Twitter URL" },
+    { "type": "url", "id": "youtube", "label": "YouTube URL" },
+    { "type": "header", "content": "Shop column" },
+    { "type": "text", "id": "shop_heading", "label": "Heading", "default": "Shop" },
+    { "type": "link_list", "id": "shop_menu", "label": "Menu" },
+    { "type": "header", "content": "Company column" },
+    { "type": "text", "id": "company_heading", "label": "Heading", "default": "Company" },
+    { "type": "link_list", "id": "company_menu", "label": "Menu" },
+    { "type": "header", "content": "Support column" },
+    { "type": "text", "id": "support_heading", "label": "Heading", "default": "Support" },
+    { "type": "link_list", "id": "support_menu", "label": "Menu" },
+    { "type": "header", "content": "Bottom" },
+    { "type": "text", "id": "tagline_right", "label": "Right tagline", "default": "Designed with fizz" }
+  ],
+  "presets": [
+    { "name": "Footer" }
+  ]
+}
+{% endschema %}

@@ -1,0 +1,40 @@
+{
+  "general": {
+    "cart": {
+      "title": "Cart",
+      "view": "View cart",
+      "empty": "Your cart is empty. Pick a pack from the shop and let's get fizzing.",
+      "subtotal": "Subtotal",
+      "checkout": "Checkout"
+    },
+    "newsletter": {
+      "subscribe": "Subscribe",
+      "success": "On the list ✓",
+      "email_placeholder": "your@email.com"
+    },
+    "search": {
+      "title": "Search"
+    }
+  },
+  "products": {
+    "product": {
+      "add_to_cart": "Add to Cart",
+      "added": "Added ✓",
+      "sold_out": "Sold out",
+      "unavailable": "Unavailable",
+      "price": "Price",
+      "quantity": "Quantity",
+      "from": "From"
+    }
+  },
+  "collections": {
+    "general": {
+      "no_matches": "No products match this collection."
+    }
+  },
+  "blogs": {
+    "general": {
+      "title": "Journal"
+    }
+  }
+}

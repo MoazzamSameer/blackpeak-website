@@ -1,0 +1,22 @@
+{
+  "sections": {
+    "main": {
+      "type": "main-collection",
+      "settings": {}
+    },
+    "bundle": {
+      "type": "bundle-builder",
+      "settings": {}
+    },
+    "newsletter": {
+      "type": "newsletter",
+      "settings": {
+        "title": "First sip,\nfirst dibs.",
+        "lede": "Subscribe for early access to new flavors, limited drops, and restock alerts.",
+        "emoji_1": "🥤",
+        "emoji_2": "✨"
+      }
+    }
+  },
+  "order": ["main", "bundle", "newsletter"]
+}

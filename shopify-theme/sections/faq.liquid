@@ -1,0 +1,37 @@
+<section class="section faq">
+  <div class="container">
+    <div class="faq__list">
+      {%- for block in section.blocks -%}
+        <details class="faq__item reveal"{% if block.settings.open %} open{% endif %} {{ block.shopify_attributes }}>
+          <summary class="faq__q">
+            {{ block.settings.question }}
+            <span class="faq__icon">+</span>
+          </summary>
+          <div class="faq__a">{{ block.settings.answer }}</div>
+        </details>
+      {%- endfor -%}
+    </div>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "FAQ",
+  "settings": [],
+  "blocks": [
+    {
+      "type": "faq",
+      "name": "Question",
+      "settings": [
+        { "type": "text", "id": "question", "label": "Question", "default": "What's actually in Blackpeak?" },
+        { "type": "richtext", "id": "answer", "label": "Answer", "default": "<p>Carbonated water, real fruit juice and flavor, a touch of cane sugar (just 9g), and a little citric acid for snap. No artificial colors, no artificial sweeteners, nothing you can't pronounce.</p>" },
+        { "type": "checkbox", "id": "open", "label": "Start open", "default": false }
+      ]
+    }
+  ],
+  "max_blocks": 30,
+  "presets": [
+    { "name": "FAQ" }
+  ]
+}
+{% endschema %}

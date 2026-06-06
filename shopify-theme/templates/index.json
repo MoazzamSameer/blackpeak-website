@@ -1,0 +1,49 @@
+{
+  "sections": {
+    "hero": { "type": "hero", "settings": {} },
+    "press": {
+      "type": "press",
+      "blocks": {
+        "logo-1": { "type": "logo", "settings": { "name": "The Taste", "style": "serif" } },
+        "logo-2": { "type": "logo", "settings": { "name": "FRESH PRESS", "style": "sans" } },
+        "logo-3": { "type": "logo", "settings": { "name": "SIP WEEKLY", "style": "sans" } },
+        "logo-4": { "type": "logo", "settings": { "name": "Graze", "style": "serif" } },
+        "logo-5": { "type": "logo", "settings": { "name": "FOODING", "style": "sans" } },
+        "logo-6": { "type": "logo", "settings": { "name": "THIRST CO", "style": "sans" } }
+      },
+      "block_order": ["logo-1", "logo-2", "logo-3", "logo-4", "logo-5", "logo-6"]
+    },
+    "flavors-grid": {
+      "type": "flavors-grid",
+      "blocks": {
+        "apple":      { "type": "flavor", "settings": { "theme": "apple",      "tag": "Crisp · Tart",  "name": "Green Apple", "desc": "First-bite Granny Smith snap. Bright, tart, and a little mischievous on the finish.", "default_can": "can-green-apple.png", "cta_text": "Explore Flavor" } },
+        "mojito":     { "type": "flavor", "settings": { "theme": "mojito",     "tag": "Cool · Minty",  "name": "Mojito",      "desc": "Lime, mint, and bubbles doing their thing. Zero rum. All breeze.",                        "default_can": "can-mojito.png",      "cta_text": "Explore Flavor" } },
+        "watermelon": { "type": "flavor", "settings": { "theme": "watermelon", "tag": "Juicy · Sweet", "name": "Watermelon",  "desc": "Like the first slice on the first warm day. Ripe, juicy, no faking.",                   "default_can": "can-watermelon.png",  "cta_text": "Explore Flavor" } }
+      },
+      "block_order": ["apple", "mojito", "watermelon"]
+    },
+    "comparison": { "type": "comparison", "settings": {} },
+    "story":      { "type": "story",      "settings": {} },
+    "benefits": {
+      "type": "benefits",
+      "blocks": {
+        "real-fruit": { "type": "benefit", "settings": { "icon": "🍓", "title": "Real Fruit",         "desc": "Built around real fruit, not a flavor packet. Tastes like the fruit on the can." } },
+        "9g":         { "type": "benefit", "settings": { "icon": "🍃", "title": "Just 9g Sugar",       "desc": "A fraction of a regular soda's 39g — lightly sweetened with real cane sugar." } },
+        "no-fake":    { "type": "benefit", "settings": { "icon": "✨", "title": "Nothing Artificial",  "desc": "No artificial colors, sweeteners, or mystery additives. Caffeine-free, too." } },
+        "recyclable": { "type": "benefit", "settings": { "icon": "♻️", "title": "Recyclable Can",      "desc": "Aluminum is infinitely recyclable. We picked the can that comes back." } }
+      },
+      "block_order": ["real-fruit", "9g", "no-fake", "recyclable"]
+    },
+    "reviews": {
+      "type": "reviews",
+      "blocks": {
+        "review-1": { "type": "review", "settings": { "theme": "apple",      "stars": "★★★★★", "text": "<p>\"Finally a soda that tastes like <b>actual green apple</b> — not a candy version of it. And I don't get the sugar crash. Obsessed.\"</p>",       "author": "Maya R.",   "meta": "Verified buyer" } },
+        "review-2": { "type": "review", "settings": { "theme": "mojito",     "stars": "★★★★★", "text": "<p>\"The Mojito is so refreshing it replaced my afternoon soda habit. <b>9g of sugar</b> and it still tastes like a treat.\"</p>",            "author": "Jordan P.", "meta": "Verified buyer" } },
+        "review-3": { "type": "review", "settings": { "theme": "watermelon", "stars": "★★★★☆", "text": "<p>\"Watermelon tastes like the real slice, not a popsicle. <b>Whole family drinks it</b> — and I feel fine giving it to the kids.\"</p>", "author": "Dana L.",   "meta": "Verified buyer" } }
+      },
+      "block_order": ["review-1", "review-2", "review-3"]
+    },
+    "newsletter": { "type": "newsletter", "settings": {} }
+  },
+  "order": ["hero", "press", "flavors-grid", "comparison", "story", "benefits", "reviews", "newsletter"]
+}

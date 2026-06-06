@@ -1,0 +1,64 @@
+<section class="section about-story">
+  <div class="container">
+    <div class="about-story__columns">
+      {%- capture text_col -%}
+        <div class="reveal">
+          <div class="section__eyebrow">{{ section.settings.eyebrow }}</div>
+          <h2 class="section__title" style="font-size: clamp(40px, 5vw, 64px); margin-bottom: 24px;">{{ section.settings.title | newline_to_br }}</h2>
+          <div>{{ section.settings.body }}</div>
+          {%- if section.settings.cta_text != blank -%}
+            <a href="{{ section.settings.cta_url | default: routes.root_url }}" class="btn" style="margin-top: 8px;">{{ section.settings.cta_text }} →</a>
+          {%- endif -%}
+        </div>
+      {%- endcapture -%}
+      {%- capture image_col -%}
+        <div class="reveal" style="aspect-ratio: 4/5; background: var(--{{ section.settings.theme }}-bg); border-radius: var(--radius-card); border: 2px solid var(--brand-ink); display: flex; align-items: center; justify-content: center; position: relative; overflow: hidden;">
+          {%- if section.settings.image != blank -%}
+            <img src="{{ section.settings.image | image_url: width: 800 }}" alt="{{ section.settings.image_alt }}" style="height: 88%; filter: drop-shadow(0 30px 60px rgba(14,42,26,0.4));" />
+          {%- else -%}
+            <img src="{{ section.settings.default_can | asset_url }}" alt="{{ section.settings.image_alt }}" style="height: 88%; filter: drop-shadow(0 30px 60px rgba(14,42,26,0.4));" />
+          {%- endif -%}
+        </div>
+      {%- endcapture -%}
+
+      {%- if section.settings.reverse -%}
+        {{ image_col }}
+        {{ text_col }}
+      {%- else -%}
+        {{ text_col }}
+        {{ image_col }}
+      {%- endif -%}
+    </div>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "About story block",
+  "settings": [
+    {
+      "type": "select",
+      "id": "theme",
+      "label": "Image panel color",
+      "options": [
+        { "value": "apple", "label": "Apple" },
+        { "value": "mojito", "label": "Mojito" },
+        { "value": "watermelon", "label": "Watermelon" }
+      ],
+      "default": "mojito"
+    },
+    { "type": "checkbox", "id": "reverse", "label": "Image on left", "default": false },
+    { "type": "text", "id": "eyebrow", "label": "Eyebrow", "default": "Where it started" },
+    { "type": "text", "id": "title", "label": "Title", "default": "A can that doesn't\nlie about what's in it." },
+    { "type": "richtext", "id": "body", "label": "Body" },
+    { "type": "text", "id": "cta_text", "label": "CTA text" },
+    { "type": "url", "id": "cta_url", "label": "CTA URL" },
+    { "type": "image_picker", "id": "image", "label": "Image" },
+    { "type": "text", "id": "image_alt", "label": "Image alt", "default": "BlackPeak can" },
+    { "type": "text", "id": "default_can", "label": "Default can asset", "default": "can-mojito.png" }
+  ],
+  "presets": [
+    { "name": "About story block" }
+  ]
+}
+{% endschema %}

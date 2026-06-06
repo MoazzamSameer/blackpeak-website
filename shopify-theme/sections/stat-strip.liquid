@@ -1,0 +1,33 @@
+<section class="section" style="background: var(--apple-bg); text-align: center;">
+  <div class="container">
+    <div class="reveal stat-strip">
+      {%- for block in section.blocks -%}
+        <div {{ block.shopify_attributes }}>
+          <div style="font-family: var(--font-display); font-weight: 700; font-size: clamp(48px, 7vw, 96px); color: var(--apple-deep); line-height: 1;">{{ block.settings.number }}</div>
+          <div style="font-weight: 800; font-size: 13px; letter-spacing: 0.06em; text-transform: uppercase; color: rgba(14, 42, 26, 0.7);">{{ block.settings.label }}</div>
+        </div>
+      {%- endfor -%}
+    </div>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Stat strip",
+  "settings": [],
+  "blocks": [
+    {
+      "type": "stat",
+      "name": "Stat",
+      "settings": [
+        { "type": "text", "id": "number", "label": "Number", "default": "2025" },
+        { "type": "text", "id": "label", "label": "Label", "default": "Founded" }
+      ]
+    }
+  ],
+  "max_blocks": 6,
+  "presets": [
+    { "name": "Stat strip" }
+  ]
+}
+{% endschema %}

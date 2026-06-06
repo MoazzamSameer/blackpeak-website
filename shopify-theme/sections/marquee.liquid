@@ -1,0 +1,34 @@
+<div class="marquee" aria-hidden="true">
+  <div class="marquee__track">
+    {%- assign nl = '
+' -%}
+    {%- assign messages = section.settings.messages | split: nl -%}
+    {%- for message in messages -%}
+      {%- assign t = message | strip -%}
+      {%- if t != blank -%}<span>{{ t }}</span>{%- endif -%}
+    {%- endfor -%}
+    {%- comment -%} duplicated for seamless loop {%- endcomment -%}
+    {%- for message in messages -%}
+      {%- assign t = message | strip -%}
+      {%- if t != blank -%}<span>{{ t }}</span>{%- endif -%}
+    {%- endfor -%}
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "Announcement marquee",
+  "settings": [
+    {
+      "type": "textarea",
+      "id": "messages",
+      "label": "Marquee messages",
+      "info": "One line per message. They scroll in a sunny yellow bar at the top of every page.",
+      "default": "Free shipping over $35\nJust 9g sugar · 50 calories\nMade with real fruit\nNo artificial anything\nNow in 3 flavors"
+    }
+  ],
+  "presets": [
+    { "name": "Announcement marquee" }
+  ]
+}
+{% endschema %}

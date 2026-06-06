@@ -1,0 +1,74 @@
+<section class="hero">
+  <div class="container">
+    <div class="hero__grid">
+      <div>
+        {%- if section.settings.eyebrow != blank -%}
+          <span class="hero__eyebrow">{{ section.settings.eyebrow }}</span>
+        {%- endif -%}
+        <h1 class="hero__title">
+          <span class="word-1">{{ section.settings.word_1 }}</span><br />
+          <span class="word-2">{{ section.settings.word_2 }}</span><br />
+          <span class="word-3">{{ section.settings.word_3 }}</span>
+        </h1>
+        <div class="hero__lede">{{ section.settings.lede }}</div>
+        <div class="hero__cta-row">
+          {%- if section.settings.cta_1_text != blank -%}
+            <a href="{{ section.settings.cta_1_url | default: routes.root_url }}" class="btn">{{ section.settings.cta_1_text }}</a>
+          {%- endif -%}
+          {%- if section.settings.cta_2_text != blank -%}
+            <a href="{{ section.settings.cta_2_url | default: routes.root_url }}" class="btn btn--alt">{{ section.settings.cta_2_text }}</a>
+          {%- endif -%}
+        </div>
+        <div class="hero__stats">
+          <div>
+            <span class="hero__stat-num">{{ section.settings.stat_1_num }}</span>
+            <span class="hero__stat-label">{{ section.settings.stat_1_label }}</span>
+          </div>
+          <div>
+            <span class="hero__stat-num">{{ section.settings.stat_2_num }}</span>
+            <span class="hero__stat-label">{{ section.settings.stat_2_label }}</span>
+          </div>
+          <div>
+            <span class="hero__stat-num">{{ section.settings.stat_3_num }}</span>
+            <span class="hero__stat-label">{{ section.settings.stat_3_label }}</span>
+          </div>
+        </div>
+      </div>
+      <div class="can-stage">
+        <div class="can-stage__blob"></div>
+        <img src="{{ 'can-green-apple.png' | asset_url }}" alt="BlackPeak Green Apple soda can" class="can-stage__can can-stage__can--apple" loading="eager" />
+        <img src="{{ 'can-mojito.png' | asset_url }}" alt="BlackPeak Mojito soda can" class="can-stage__can can-stage__can--mojito" loading="eager" />
+        <img src="{{ 'can-watermelon.png' | asset_url }}" alt="BlackPeak Watermelon soda can" class="can-stage__can can-stage__can--watermelon" loading="eager" />
+      </div>
+    </div>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Hero",
+  "settings": [
+    { "type": "text", "id": "eyebrow", "label": "Eyebrow", "default": "New · Less sugar, real fruit" },
+    { "type": "header", "content": "Title (3 stacked words)" },
+    { "type": "text", "id": "word_1", "label": "Word 1", "default": "Real" },
+    { "type": "text", "id": "word_2", "label": "Word 2", "default": "Fruit" },
+    { "type": "text", "id": "word_3", "label": "Word 3", "default": "Fizz" },
+    { "type": "richtext", "id": "lede", "label": "Lede", "default": "<p>Bold fizz, real fruit, and a fraction of the sugar. Blackpeak tastes like the fruit on the can — just <strong>9g sugar</strong> and <strong>50 calories</strong> a can, with nothing artificial. Soda you don't have to think twice about.</p>" },
+    { "type": "header", "content": "CTAs" },
+    { "type": "text", "id": "cta_1_text", "label": "Primary CTA text", "default": "Shop The Lineup →" },
+    { "type": "url", "id": "cta_1_url", "label": "Primary CTA URL" },
+    { "type": "text", "id": "cta_2_text", "label": "Secondary CTA text", "default": "Meet The Flavors" },
+    { "type": "url", "id": "cta_2_url", "label": "Secondary CTA URL" },
+    { "type": "header", "content": "Stats (3 columns)" },
+    { "type": "text", "id": "stat_1_num", "label": "Stat 1 number", "default": "9g" },
+    { "type": "text", "id": "stat_1_label", "label": "Stat 1 label", "default": "Sugar per can" },
+    { "type": "text", "id": "stat_2_num", "label": "Stat 2 number", "default": "50" },
+    { "type": "text", "id": "stat_2_label", "label": "Stat 2 label", "default": "Calories" },
+    { "type": "text", "id": "stat_3_num", "label": "Stat 3 number", "default": "0" },
+    { "type": "text", "id": "stat_3_label", "label": "Stat 3 label", "default": "Artificial junk" }
+  ],
+  "presets": [
+    { "name": "Hero" }
+  ]
+}
+{% endschema %}

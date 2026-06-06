@@ -1,0 +1,37 @@
+<section class="section newsletter">
+  {%- if section.settings.emoji_1 != blank -%}
+    <span class="newsletter__doodle newsletter__doodle--1">{{ section.settings.emoji_1 }}</span>
+  {%- endif -%}
+  {%- if section.settings.emoji_2 != blank -%}
+    <span class="newsletter__doodle newsletter__doodle--2">{{ section.settings.emoji_2 }}</span>
+  {%- endif -%}
+  <div class="container">
+    <div class="newsletter__inner reveal">
+      <h2 class="newsletter__title">{{ section.settings.title | newline_to_br }}</h2>
+      <p class="newsletter__lede">{{ section.settings.lede }}</p>
+      {%- form 'customer', id: 'newsletterForm', class: 'newsletter__form' -%}
+        <input type="hidden" name="contact[tags]" value="newsletter" />
+        <input type="email" name="contact[email]" required placeholder="{{ 'general.newsletter.email_placeholder' | t }}" aria-label="Email address" />
+        <button type="submit" class="btn btn--pop">{{ 'general.newsletter.subscribe' | t }}</button>
+        {%- if form.posted_successfully? -%}
+          <p style="margin-top: 16px; color: var(--apple-deep); font-weight: 700;">Thanks — you're on the list!</p>
+        {%- endif -%}
+      {%- endform -%}
+    </div>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Newsletter",
+  "settings": [
+    { "type": "text", "id": "title", "label": "Title", "default": "Join the\nfizz list." },
+    { "type": "textarea", "id": "lede", "label": "Lede", "default": "New flavors, restocks, and early-access drops. No fluff — just the stuff worth opening." },
+    { "type": "text", "id": "emoji_1", "label": "Doodle 1 (emoji)", "default": "🍉" },
+    { "type": "text", "id": "emoji_2", "label": "Doodle 2 (emoji)", "default": "🌿" }
+  ],
+  "presets": [
+    { "name": "Newsletter" }
+  ]
+}
+{% endschema %}

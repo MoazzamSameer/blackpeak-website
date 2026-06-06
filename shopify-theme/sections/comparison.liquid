@@ -1,0 +1,64 @@
+<section class="section compare">
+  <div class="container">
+    <div class="reveal" style="text-align: center; max-width: 680px; margin: 0 auto 48px;">
+      <div class="section__eyebrow">{{ section.settings.eyebrow }}</div>
+      <h2 class="section__title" style="font-size: clamp(38px, 6vw, 76px);">{{ section.settings.title | newline_to_br }}</h2>
+    </div>
+    <div class="compare__grid reveal">
+      <div class="compare__col compare__col--bad">
+        <div class="compare__name">{{ section.settings.bad_name }}</div>
+        <div class="compare__big">{{ section.settings.bad_big }}<small>{{ section.settings.bad_unit }}</small></div>
+        <div class="compare__big-label">{{ section.settings.bad_big_label }}</div>
+        <ul class="compare__list">
+          {%- assign nl = '
+' -%}
+          {%- assign items = section.settings.bad_list | split: nl -%}
+          {%- for item in items -%}
+            {%- assign t = item | strip -%}
+            {%- if t != blank -%}<li>{{ t }}</li>{%- endif -%}
+          {%- endfor -%}
+        </ul>
+      </div>
+      <div class="compare__col compare__col--good">
+        <div class="compare__name">{{ section.settings.good_name }}</div>
+        <div class="compare__big">{{ section.settings.good_big }}<small>{{ section.settings.good_unit }}</small></div>
+        <div class="compare__big-label">{{ section.settings.good_big_label }}</div>
+        <ul class="compare__list">
+          {%- assign items = section.settings.good_list | split: nl -%}
+          {%- for item in items -%}
+            {%- assign t = item | strip -%}
+            {%- if t != blank -%}<li>{{ t }}</li>{%- endif -%}
+          {%- endfor -%}
+        </ul>
+      </div>
+      <span class="compare__vs" aria-hidden="true">{{ section.settings.vs_text }}</span>
+    </div>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Sugar comparison",
+  "settings": [
+    { "type": "text", "id": "eyebrow", "label": "Eyebrow", "default": "The sweet difference" },
+    { "type": "text", "id": "title", "label": "Title", "default": "Same fizz.\nA fraction of the sugar." },
+    { "type": "header", "content": "Left column (regular)" },
+    { "type": "text", "id": "bad_name", "label": "Name", "default": "A regular soda" },
+    { "type": "text", "id": "bad_big", "label": "Big number", "default": "39" },
+    { "type": "text", "id": "bad_unit", "label": "Unit", "default": "g" },
+    { "type": "text", "id": "bad_big_label", "label": "Big label", "default": "Sugar per can" },
+    { "type": "textarea", "id": "bad_list", "label": "Bullet list (one per line)", "default": "About 140 calories\nCorn syrup & additives\nArtificial colors\nHello, sugar crash" },
+    { "type": "header", "content": "Right column (BlackPeak)" },
+    { "type": "text", "id": "good_name", "label": "Name", "default": "Blackpeak" },
+    { "type": "text", "id": "good_big", "label": "Big number", "default": "9" },
+    { "type": "text", "id": "good_unit", "label": "Unit", "default": "g" },
+    { "type": "text", "id": "good_big_label", "label": "Big label", "default": "Sugar per can" },
+    { "type": "textarea", "id": "good_list", "label": "Bullet list (one per line)", "default": "Just 50 calories\nReal fruit, a touch of cane sugar\nNo artificial colors\nLight, clean, no crash" },
+    { "type": "header", "content": "Center badge" },
+    { "type": "text", "id": "vs_text", "label": "VS text", "default": "VS" }
+  ],
+  "presets": [
+    { "name": "Sugar comparison" }
+  ]
+}
+{% endschema %}

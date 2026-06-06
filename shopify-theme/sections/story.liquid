@@ -1,0 +1,40 @@
+<section class="section story">
+  <div class="container">
+    <div class="story__grid">
+      <div class="reveal">
+        <div class="section__eyebrow">{{ section.settings.eyebrow }}</div>
+        <h2 class="story__title">{{ section.settings.title | newline_to_br }}</h2>
+        <div class="story__body">{{ section.settings.body }}</div>
+        {%- if section.settings.cta_text != blank -%}
+          <a href="{{ section.settings.cta_url | default: routes.root_url }}" class="btn btn--apple">{{ section.settings.cta_text }}</a>
+        {%- endif -%}
+      </div>
+      <div class="story__visual reveal">
+        {%- if section.settings.image != blank -%}
+          <img src="{{ section.settings.image | image_url: width: 800 }}" alt="{{ section.settings.image_alt }}" />
+        {%- else -%}
+          <img src="{{ section.settings.default_can | asset_url }}" alt="{{ section.settings.image_alt }}" />
+        {%- endif -%}
+      </div>
+    </div>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Story",
+  "settings": [
+    { "type": "text", "id": "eyebrow", "label": "Eyebrow", "default": "Our Story" },
+    { "type": "text", "id": "title", "label": "Title", "default": "Soda that\ntastes like\nit should." },
+    { "type": "richtext", "id": "body", "label": "Body copy", "default": "<p>We started Blackpeak because we were tired of pulling a tab and getting <span class=\"story__highlight\">syrup-flavored fizz</span>. So we built a soda the old way — real fruit first, then bubbles, then a tall slim can that fits in your hand like it belongs.</p><p>No flavor labs mimicking candy, no mystery additives, no flood of sugar. Just real fruit, a touch of cane sugar instead of 39 grams of it, and nothing artificial.</p>" },
+    { "type": "text", "id": "cta_text", "label": "CTA text", "default": "Read The Story →" },
+    { "type": "url", "id": "cta_url", "label": "CTA URL" },
+    { "type": "image_picker", "id": "image", "label": "Visual image" },
+    { "type": "text", "id": "image_alt", "label": "Image alt text", "default": "BlackPeak Green Apple can" },
+    { "type": "text", "id": "default_can", "label": "Default can asset (filename)", "default": "can-green-apple.png" }
+  ],
+  "presets": [
+    { "name": "Story" }
+  ]
+}
+{% endschema %}

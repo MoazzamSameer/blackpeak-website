@@ -1,0 +1,24 @@
+{%- comment -%}
+  Renders one flavor row in the build-your-own bundle.
+  Params: product (object), theme (string), fallback (asset filename)
+{%- endcomment -%}
+{%- if product != blank -%}
+  <div class="bundle-row bundle-row--{{ theme }}">
+    <div class="bundle-row__can">
+      {%- if product.featured_image != blank -%}
+        <img src="{{ product.featured_image | image_url: width: 200 }}" alt="{{ product.title | escape }}" />
+      {%- else -%}
+        <img src="{{ fallback | asset_url }}" alt="{{ product.title | escape }}" />
+      {%- endif -%}
+    </div>
+    <div class="bundle-row__info">
+      <div class="bundle-row__name">{{ product.title }}</div>
+      <div class="bundle-row__desc">{{ product.metafields.blackpeak.tagline | default: product.description | strip_html | truncate: 40 }}</div>
+    </div>
+    <div class="stepper" data-flavor="{{ product.title | escape }}" data-variant-id="{{ product.selected_or_first_available_variant.id }}">
+      <button type="button" class="stepper__minus" aria-label="Remove one {{ product.title | escape }}">−</button>
+      <span class="stepper__count" data-count>0</span>
+      <button type="button" class="stepper__plus" aria-label="Add one {{ product.title | escape }}">+</button>
+    </div>
+  </div>
+{%- endif -%}

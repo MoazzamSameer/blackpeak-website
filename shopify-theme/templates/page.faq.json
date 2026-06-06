@@ -1,0 +1,36 @@
+{
+  "sections": {
+    "page-hero": {
+      "type": "page-hero",
+      "settings": {
+        "theme": "watermelon",
+        "title": "Questions?",
+        "lede": "Quick answers about the soda, the cans, and getting them to your door."
+      }
+    },
+    "faq": {
+      "type": "faq",
+      "blocks": {
+        "q1": { "type": "faq", "settings": { "question": "What's actually in Blackpeak?", "answer": "<p>Carbonated water, real fruit juice and flavor, a touch of cane sugar (just 9g), and a little citric acid for snap. No artificial colors, no artificial sweeteners, nothing you can't pronounce. The full ingredient list is on each can.</p>", "open": true } },
+        "q2": { "type": "faq", "settings": { "question": "Is this a healthy soda?", "answer": "<p>Better-for-you, not a wellness gimmick. Each 330ml can is about 45–50 calories with 8–10g of sugar — a fraction of a regular soda's ~140 calories and 39g. It's sweetened with real fruit and a touch of cane sugar, with nothing artificial. We won't call it a health drink, but it's an easy upgrade from cola.</p>", "open": false } },
+        "q3": { "type": "faq", "settings": { "question": "How much caffeine does it have?", "answer": "<p>Zero. All three flavors are caffeine-free, so you can crack one open at any time of day without thinking twice.</p>", "open": false } },
+        "q4": { "type": "faq", "settings": { "question": "Where do you ship?", "answer": "<p>We ship across the continental US. Free shipping on orders over $35. International is coming — get on the fizz list and we'll let you know when your country goes live.</p>", "open": false } },
+        "q5": { "type": "faq", "settings": { "question": "How fast will my order get to me?", "answer": "<p>Most orders ship within 1 business day and arrive in 3–5 business days. You'll get a tracking link the moment your case leaves our warehouse.</p>", "open": false } },
+        "q6": { "type": "faq", "settings": { "question": "Can I return it if I don't love it?", "answer": "<p>Yes. If a flavor isn't your thing, email us within 30 days and we'll refund the case — no need to ship it back.</p>", "open": false } },
+        "q7": { "type": "faq", "settings": { "question": "How does the subscription work?", "answer": "<p>The Monthly Drop sends a variety case every month at a lower price than one-off. Pause, swap flavors, or cancel anytime from your account.</p>", "open": false } },
+        "q8": { "type": "faq", "settings": { "question": "Are the cans recyclable?", "answer": "<p>Yes. Aluminum is one of the most recyclable materials on earth and can be back on a shelf within 60 days. Rinse, recycle, repeat.</p>", "open": false } }
+      },
+      "block_order": ["q1", "q2", "q3", "q4", "q5", "q6", "q7", "q8"]
+    },
+    "newsletter": {
+      "type": "newsletter",
+      "settings": {
+        "title": "Still got\nquestions?",
+        "lede": "Hit us up — we read every email. Or join the list and we'll send updates before you have to ask.",
+        "emoji_1": "❓",
+        "emoji_2": "🍃"
+      }
+    }
+  },
+  "order": ["page-hero", "faq", "newsletter"]
+}

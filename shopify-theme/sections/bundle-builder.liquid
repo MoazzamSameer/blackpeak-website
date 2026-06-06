@@ -1,0 +1,59 @@
+{%- assign p1 = section.settings.product_1 -%}
+{%- assign p2 = section.settings.product_2 -%}
+{%- assign p3 = section.settings.product_3 -%}
+
+<section class="section bundle">
+  <div class="container">
+    <div class="reveal" style="text-align: center; max-width: 640px; margin: 0 auto 44px;">
+      <div class="section__eyebrow">{{ section.settings.eyebrow }}</div>
+      <h2 class="section__title" style="font-size: clamp(38px, 6vw, 72px);">{{ section.settings.title | newline_to_br }}</h2>
+      <p class="section__lede" style="margin: 14px auto 0;">{{ section.settings.lede }}</p>
+    </div>
+    {%- if p1 != blank and p2 != blank and p3 != blank -%}
+      <div class="bundle__grid">
+        <div class="bundle__builder reveal" id="bundleBuilder">
+          {%- render 'bundle-row', product: p1, theme: 'apple', fallback: 'can-green-apple.png' -%}
+          {%- render 'bundle-row', product: p2, theme: 'mojito', fallback: 'can-mojito.png' -%}
+          {%- render 'bundle-row', product: p3, theme: 'watermelon', fallback: 'can-watermelon.png' -%}
+        </div>
+        <aside class="bundle__summary reveal">
+          <h3>{{ section.settings.summary_title }}</h3>
+          <p>{{ section.settings.summary_subtitle }}</p>
+          <div class="bundle__progress"><div class="bundle__progress-bar" id="bundleBar"></div></div>
+          <p class="bundle__count-txt"><b id="bundleCount">0</b> / 12 cans selected</p>
+          <div class="bundle__price">{{ section.settings.price }}</div>
+          <p class="bundle__note">{{ section.settings.note }}</p>
+          <button class="btn bundle__add" id="bundleAdd" data-add-bundle disabled>Add 12 more to fill the box</button>
+        </aside>
+      </div>
+    {%- else -%}
+      <div style="text-align: center; padding: 32px; background: var(--brand-cream-2); border-radius: var(--radius-card); max-width: 640px; margin: 0 auto;">
+        <p style="font-weight: 700; margin-bottom: 8px;">Bundle builder needs products.</p>
+        <p style="color: var(--brand-ink-soft);">Open this section in the theme editor and pick three flavor products to enable the build-your-own 12-pack.</p>
+      </div>
+    {%- endif -%}
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Build-your-own bundle",
+  "settings": [
+    { "type": "text", "id": "eyebrow", "label": "Eyebrow", "default": "Mix & match" },
+    { "type": "text", "id": "title", "label": "Title", "default": "Build your own\n12-pack." },
+    { "type": "textarea", "id": "lede", "label": "Lede", "default": "Can't pick a favorite? Don't. Choose any mix of the three flavors — 12 cans, one box, free shipping." },
+    { "type": "header", "content": "Products (single-can variants recommended)" },
+    { "type": "product", "id": "product_1", "label": "Flavor 1 (apple/green)" },
+    { "type": "product", "id": "product_2", "label": "Flavor 2 (mojito/aqua)" },
+    { "type": "product", "id": "product_3", "label": "Flavor 3 (watermelon/pink)" },
+    { "type": "header", "content": "Summary" },
+    { "type": "text", "id": "summary_title", "label": "Summary title", "default": "Your box" },
+    { "type": "text", "id": "summary_subtitle", "label": "Summary subtitle", "default": "Pick 12 cans to check out." },
+    { "type": "text", "id": "price", "label": "Display price (HTML)", "default": "$34<small>.00</small>" },
+    { "type": "text", "id": "note", "label": "Note", "default": "Free shipping · ships in 1 business day" }
+  ],
+  "presets": [
+    { "name": "Build-your-own bundle" }
+  ]
+}
+{% endschema %}

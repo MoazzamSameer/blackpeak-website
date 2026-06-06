@@ -1,0 +1,80 @@
+<section class="section flavors" id="flavors">
+  <div class="container">
+    <div class="section__head reveal">
+      <div>
+        <div class="section__eyebrow">{{ section.settings.eyebrow }}</div>
+        <h2 class="section__title">{{ section.settings.title | newline_to_br }}</h2>
+      </div>
+      {%- if section.settings.lede != blank -%}
+        <p class="section__lede">{{ section.settings.lede }}</p>
+      {%- endif -%}
+    </div>
+    <div class="flavors__grid">
+      {%- for block in section.blocks -%}
+        <article class="flavor-card flavor-card--{{ block.settings.theme }} reveal" {{ block.shopify_attributes }}>
+          <span class="flavor-card__tag">{{ block.settings.tag }}</span>
+          <div class="flavor-card__can">
+            {%- if block.settings.can_image != blank -%}
+              <img src="{{ block.settings.can_image | image_url: width: 800 }}" alt="{{ block.settings.name }} can" loading="lazy" />
+            {%- else -%}
+              <img src="{{ block.settings.default_can | asset_url }}" alt="{{ block.settings.name }} can" loading="lazy" />
+            {%- endif -%}
+          </div>
+          <h3 class="flavor-card__name">{{ block.settings.name }}</h3>
+          <p class="flavor-card__desc">{{ block.settings.desc }}</p>
+          {%- if block.settings.cta_text != blank -%}
+            <a href="{{ block.settings.cta_url | default: routes.root_url }}" class="flavor-card__cta">{{ block.settings.cta_text }} →</a>
+          {%- endif -%}
+        </article>
+      {%- endfor -%}
+    </div>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Flavors grid",
+  "settings": [
+    { "type": "text", "id": "eyebrow", "label": "Eyebrow", "default": "The Lineup" },
+    { "type": "text", "id": "title", "label": "Title", "default": "Three flavors.\nZero compromise." },
+    { "type": "textarea", "id": "lede", "label": "Lede", "default": "Each can is engineered for bite, balance, and a finish that doesn't fade. Pick a favorite — or grab the variety pack and stop choosing." }
+  ],
+  "blocks": [
+    {
+      "type": "flavor",
+      "name": "Flavor card",
+      "settings": [
+        {
+          "type": "select",
+          "id": "theme",
+          "label": "Color theme",
+          "options": [
+            { "value": "apple", "label": "Apple (green)" },
+            { "value": "mojito", "label": "Mojito (aqua)" },
+            { "value": "watermelon", "label": "Watermelon (pink)" }
+          ],
+          "default": "apple"
+        },
+        { "type": "text", "id": "tag", "label": "Tag", "default": "Crisp · Tart" },
+        { "type": "text", "id": "name", "label": "Flavor name", "default": "Green Apple" },
+        { "type": "textarea", "id": "desc", "label": "Description", "default": "First-bite Granny Smith snap. Bright, tart, and a little mischievous on the finish." },
+        { "type": "image_picker", "id": "can_image", "label": "Can image", "info": "Falls back to the bundled asset if empty." },
+        { "type": "text", "id": "default_can", "label": "Default can asset (filename)", "default": "can-green-apple.png" },
+        { "type": "text", "id": "cta_text", "label": "CTA text", "default": "Explore Flavor" },
+        { "type": "url", "id": "cta_url", "label": "CTA URL" }
+      ]
+    }
+  ],
+  "max_blocks": 6,
+  "presets": [
+    {
+      "name": "Flavors grid",
+      "blocks": [
+        { "type": "flavor", "settings": { "theme": "apple", "tag": "Crisp · Tart", "name": "Green Apple", "desc": "First-bite Granny Smith snap. Bright, tart, and a little mischievous on the finish.", "default_can": "can-green-apple.png", "cta_text": "Explore Flavor" } },
+        { "type": "flavor", "settings": { "theme": "mojito", "tag": "Cool · Minty", "name": "Mojito", "desc": "Lime, mint, and bubbles doing their thing. Zero rum. All breeze.", "default_can": "can-mojito.png", "cta_text": "Explore Flavor" } },
+        { "type": "flavor", "settings": { "theme": "watermelon", "tag": "Juicy · Sweet", "name": "Watermelon", "desc": "Like the first slice on the first warm day. Ripe, juicy, no faking.", "default_can": "can-watermelon.png", "cta_text": "Explore Flavor" } }
+      ]
+    }
+  ]
+}
+{% endschema %}

@@ -1,0 +1,73 @@
+<section id="{{ section.settings.anchor }}" class="flavor-block flavor-block--{{ section.settings.theme }}">
+  <div class="container">
+    <div class="flavor-block__grid{% if section.settings.reverse %} flavor-block__grid--reverse{% endif %}">
+      <div class="reveal">
+        <div class="section__eyebrow">{{ section.settings.eyebrow }}</div>
+        <h2 class="flavor-block__name">{{ section.settings.name | newline_to_br }}</h2>
+        <p style="font-size:18px; max-width:480px; color: rgba(14,42,26,0.8);">{{ section.settings.description }}</p>
+        <div class="flavor-block__notes">
+          {%- assign notes = section.settings.notes | split: ',' -%}
+          {%- for note in notes -%}
+            {%- assign nt = note | strip -%}
+            {%- if nt != blank -%}<span class="flavor-block__note">{{ nt }}</span>{%- endif -%}
+          {%- endfor -%}
+        </div>
+        <div class="flavor-block__facts">
+          <div class="flavor-block__fact"><b>{{ section.settings.fact_1 }}</b><span>{{ section.settings.fact_1_label }}</span></div>
+          <div class="flavor-block__fact"><b>{{ section.settings.fact_2 }}</b><span>{{ section.settings.fact_2_label }}</span></div>
+          <div class="flavor-block__fact"><b>{{ section.settings.fact_3 }}</b><span>{{ section.settings.fact_3_label }}</span></div>
+        </div>
+        {%- if section.settings.cta_text != blank -%}
+          <a href="{{ section.settings.cta_url | default: routes.root_url }}" class="btn btn--{{ section.settings.theme }}">{{ section.settings.cta_text }} →</a>
+        {%- endif -%}
+      </div>
+      <div class="flavor-block__can reveal">
+        {%- if section.settings.image != blank -%}
+          <img src="{{ section.settings.image | image_url: width: 800 }}" alt="{{ section.settings.name | strip_newlines }} can" />
+        {%- else -%}
+          <img src="{{ section.settings.default_can | asset_url }}" alt="{{ section.settings.name | strip_newlines }} can" />
+        {%- endif -%}
+      </div>
+    </div>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Flavor block",
+  "settings": [
+    {
+      "type": "select",
+      "id": "theme",
+      "label": "Color theme",
+      "options": [
+        { "value": "apple", "label": "Apple" },
+        { "value": "mojito", "label": "Mojito" },
+        { "value": "watermelon", "label": "Watermelon" }
+      ],
+      "default": "apple"
+    },
+    { "type": "checkbox", "id": "reverse", "label": "Image on left (reverse)", "default": false },
+    { "type": "text", "id": "anchor", "label": "Anchor ID", "default": "apple" },
+    { "type": "text", "id": "eyebrow", "label": "Eyebrow", "default": "Flavor 01" },
+    { "type": "text", "id": "name", "label": "Flavor name", "default": "Green\nApple", "info": "Use \\n for line breaks." },
+    { "type": "textarea", "id": "description", "label": "Description" },
+    { "type": "text", "id": "notes", "label": "Notes (comma-separated)", "default": "Crisp, Tart, Bright, Lightly sweet" },
+    { "type": "header", "content": "Facts" },
+    { "type": "text", "id": "fact_1", "label": "Fact 1 number", "default": "50" },
+    { "type": "text", "id": "fact_1_label", "label": "Fact 1 label", "default": "Calories" },
+    { "type": "text", "id": "fact_2", "label": "Fact 2 number", "default": "9g" },
+    { "type": "text", "id": "fact_2_label", "label": "Fact 2 label", "default": "Sugar" },
+    { "type": "text", "id": "fact_3", "label": "Fact 3 number", "default": "0" },
+    { "type": "text", "id": "fact_3_label", "label": "Fact 3 label", "default": "Artificial" },
+    { "type": "header", "content": "CTA & image" },
+    { "type": "text", "id": "cta_text", "label": "CTA text", "default": "Shop Green Apple" },
+    { "type": "url", "id": "cta_url", "label": "CTA URL" },
+    { "type": "image_picker", "id": "image", "label": "Can image" },
+    { "type": "text", "id": "default_can", "label": "Default can asset", "default": "can-green-apple.png" }
+  ],
+  "presets": [
+    { "name": "Flavor block" }
+  ]
+}
+{% endschema %}

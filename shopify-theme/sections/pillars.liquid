@@ -1,0 +1,44 @@
+<section class="section about-pillars">
+  <div class="container">
+    <div class="section__head reveal" style="margin-bottom: 56px;">
+      <div>
+        <div class="section__eyebrow" style="color: var(--mojito-deep);">{{ section.settings.eyebrow }}</div>
+        <h2 class="section__title">{{ section.settings.title | newline_to_br }}</h2>
+      </div>
+    </div>
+    <div class="about-pillars__grid">
+      {%- for block in section.blocks -%}
+        <div class="pillar reveal" {{ block.shopify_attributes }}>
+          <div class="pillar__num">{{ block.settings.number }}</div>
+          <h3>{{ block.settings.title }}</h3>
+          <p>{{ block.settings.body }}</p>
+        </div>
+      {%- endfor -%}
+    </div>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Pillars",
+  "settings": [
+    { "type": "text", "id": "eyebrow", "label": "Eyebrow", "default": "What we stand for" },
+    { "type": "text", "id": "title", "label": "Title", "default": "Three rules.\nThat's it." }
+  ],
+  "blocks": [
+    {
+      "type": "pillar",
+      "name": "Pillar",
+      "settings": [
+        { "type": "text", "id": "number", "label": "Number", "default": "01" },
+        { "type": "text", "id": "title", "label": "Title", "default": "Flavor first" },
+        { "type": "textarea", "id": "body", "label": "Body", "default": "Every can starts with the fruit." }
+      ]
+    }
+  ],
+  "max_blocks": 6,
+  "presets": [
+    { "name": "Pillars" }
+  ]
+}
+{% endschema %}

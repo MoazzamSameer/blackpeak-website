@@ -1,0 +1,46 @@
+{
+  "sections": {
+    "page-hero": {
+      "type": "page-hero",
+      "settings": {
+        "theme": "apple",
+        "title": "The Flavors",
+        "lede": "Three real-fruit ideas. Three tall slim cans. All under 50 calories with just 9g of sugar."
+      }
+    },
+    "apple": {
+      "type": "flavor-block",
+      "settings": {
+        "theme": "apple", "reverse": false, "anchor": "apple", "eyebrow": "Flavor 01",
+        "name": "Green\nApple",
+        "description": "Granny Smith on the front, tart snap in the middle, clean finish that never goes sticky. Think first-bite-of-a-cold-apple energy in a can.",
+        "notes": "Crisp, Tart, Bright, Lightly sweet",
+        "fact_1": "50", "fact_1_label": "Calories", "fact_2": "9g", "fact_2_label": "Sugar", "fact_3": "0", "fact_3_label": "Artificial",
+        "cta_text": "Shop Green Apple", "default_can": "can-green-apple.png"
+      }
+    },
+    "mojito": {
+      "type": "flavor-block",
+      "settings": {
+        "theme": "mojito", "reverse": true, "anchor": "mojito", "eyebrow": "Flavor 02",
+        "name": "Mojito",
+        "description": "Cold lime, fresh mint, the kind of fizz that wakes you up. We took the cocktail apart, kept the breezy half, and put it in a can.",
+        "notes": "Cool, Minty, Lime-forward, No alcohol",
+        "fact_1": "45", "fact_1_label": "Calories", "fact_2": "8g", "fact_2_label": "Sugar", "fact_3": "0", "fact_3_label": "Artificial",
+        "cta_text": "Shop Mojito", "default_can": "can-mojito.png"
+      }
+    },
+    "watermelon": {
+      "type": "flavor-block",
+      "settings": {
+        "theme": "watermelon", "reverse": false, "anchor": "watermelon", "eyebrow": "Flavor 03",
+        "name": "Water-\nmelon",
+        "description": "Ripe, juicy, summer-on-a-porch. We dialed in the sweet without crossing into candy. Tastes like the slice you went back for.",
+        "notes": "Juicy, Sweet, Ripe, Refreshing",
+        "fact_1": "50", "fact_1_label": "Calories", "fact_2": "10g", "fact_2_label": "Sugar", "fact_3": "0", "fact_3_label": "Artificial",
+        "cta_text": "Shop Watermelon", "default_can": "can-watermelon.png"
+      }
+    }
+  },
+  "order": ["page-hero", "apple", "mojito", "watermelon"]
+}
