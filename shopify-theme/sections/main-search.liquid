@@ -1,0 +1,45 @@
+<section class="page-hero page-hero--apple">
+  <div class="container">
+    <h1 class="page-hero__title">Search</h1>
+  </div>
+</section>
+
+<section class="section" style="background: var(--brand-paper);">
+  <div class="container">
+    <form action="{{ routes.search_url }}" method="get" role="search" class="newsletter__form" style="max-width: 560px; margin: 0 auto 40px;">
+      <input type="search" name="q" value="{{ search.terms | escape }}" placeholder="Search the store…" aria-label="Search" />
+      <button type="submit" class="btn btn--pop">Search</button>
+    </form>
+
+    {%- if search.performed -%}
+      {%- if search.results_count > 0 -%}
+        <p style="text-align: center; margin-bottom: 32px; color: var(--brand-ink-soft);">{{ search.results_count }} result{{ search.results_count | pluralize: '', 's' }} for "{{ search.terms | escape }}"</p>
+        <div class="shop__grid">
+          {%- for item in search.results -%}
+            <article class="product reveal">
+              {%- if item.featured_image -%}
+                <a href="{{ item.url }}" class="product__media"><img src="{{ item.featured_image | image_url: width: 600 }}" alt="{{ item.title | escape }}" loading="lazy" /></a>
+              {%- elsif item.image -%}
+                <a href="{{ item.url }}" class="product__media"><img src="{{ item.image | image_url: width: 600 }}" alt="{{ item.title | escape }}" loading="lazy" /></a>
+              {%- endif -%}
+              <h3 class="product__name"><a href="{{ item.url }}" style="color: inherit;">{{ item.title }}</a></h3>
+              {%- if item.object_type == 'product' -%}
+                <p class="product__price">{{ item.price | money }}</p>
+              {%- endif -%}
+            </article>
+          {%- endfor -%}
+        </div>
+      {%- else -%}
+        <p style="text-align: center; padding: 40px 0;">No results for "{{ search.terms | escape }}". Try another search.</p>
+      {%- endif -%}
+    {%- endif -%}
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Search results",
+  "settings": [],
+  "presets": [{ "name": "Search results" }]
+}
+{% endschema %}
