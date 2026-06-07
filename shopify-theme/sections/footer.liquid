@@ -14,25 +14,39 @@
       <div class="footer__col">
         <h4>{{ section.settings.shop_heading }}</h4>
         <ul>
-          {%- for link in section.settings.shop_menu.links -%}
-            <li><a href="{{ link.url }}">{{ link.title }}</a></li>
-          {%- endfor -%}
+          {%- if section.settings.shop_menu != blank and section.settings.shop_menu.links.size > 0 -%}
+            {%- for link in section.settings.shop_menu.links -%}
+              <li><a href="{{ link.url }}">{{ link.title }}</a></li>
+            {%- endfor -%}
+          {%- else -%}
+            <li><a href="{{ routes.all_products_collection_url }}">All Sodas</a></li>
+            <li><a href="/pages/flavors">Flavors</a></li>
+          {%- endif -%}
         </ul>
       </div>
       <div class="footer__col">
         <h4>{{ section.settings.company_heading }}</h4>
         <ul>
-          {%- for link in section.settings.company_menu.links -%}
-            <li><a href="{{ link.url }}">{{ link.title }}</a></li>
-          {%- endfor -%}
+          {%- if section.settings.company_menu != blank and section.settings.company_menu.links.size > 0 -%}
+            {%- for link in section.settings.company_menu.links -%}
+              <li><a href="{{ link.url }}">{{ link.title }}</a></li>
+            {%- endfor -%}
+          {%- else -%}
+            <li><a href="/pages/about">Our Story</a></li>
+          {%- endif -%}
         </ul>
       </div>
       <div class="footer__col">
         <h4>{{ section.settings.support_heading }}</h4>
         <ul>
-          {%- for link in section.settings.support_menu.links -%}
-            <li><a href="{{ link.url }}">{{ link.title }}</a></li>
-          {%- endfor -%}
+          {%- if section.settings.support_menu != blank and section.settings.support_menu.links.size > 0 -%}
+            {%- for link in section.settings.support_menu.links -%}
+              <li><a href="{{ link.url }}">{{ link.title }}</a></li>
+            {%- endfor -%}
+          {%- else -%}
+            <li><a href="/pages/faq">FAQ</a></li>
+            <li><a href="{{ routes.cart_url }}">Cart</a></li>
+          {%- endif -%}
         </ul>
       </div>
     </div>

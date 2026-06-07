@@ -1,12 +1,23 @@
+{%- comment -%} Build nav links: use the linked menu if it has links, else sensible defaults so the header never looks empty before setup. {%- endcomment -%}
+{%- capture nav_links -%}
+  {%- if section.settings.menu != blank and section.settings.menu.links.size > 0 -%}
+    {%- for link in section.settings.menu.links -%}
+      <a href="{{ link.url }}"{% if link.current %} aria-current="page"{% endif %}>{{ link.title }}</a>
+    {%- endfor -%}
+  {%- else -%}
+    <a href="{{ routes.root_url }}">Home</a>
+    <a href="{{ routes.all_products_collection_url }}">Shop</a>
+    <a href="/pages/flavors">Flavors</a>
+    <a href="/pages/about">About</a>
+    <a href="/pages/faq">FAQ</a>
+  {%- endif -%}
+{%- endcapture -%}
+
 <header class="nav">
   <div class="container">
     <div class="nav__inner">
       <a href="{{ routes.root_url }}" class="nav__logo">{{ shop.name | default: 'BLACKPEAK' | upcase }}</a>
-      <nav class="nav__links" aria-label="Primary">
-        {%- for link in section.settings.menu.links -%}
-          <a href="{{ link.url }}"{% if link.current %} aria-current="page"{% endif %}>{{ link.title }}</a>
-        {%- endfor -%}
-      </nav>
+      <nav class="nav__links" aria-label="Primary">{{ nav_links }}</nav>
       <div class="nav__cta">
         <a href="{{ routes.cart_url }}" class="nav__cart" id="cartBtn" aria-label="{{ 'general.cart.title' | t }}">
           CART
@@ -15,11 +26,7 @@
         <button class="nav__burger" id="burger" aria-label="Open menu" type="button">☰</button>
       </div>
     </div>
-    <div class="nav__mobile" id="navMobile">
-      {%- for link in section.settings.menu.links -%}
-        <a href="{{ link.url }}">{{ link.title }}</a>
-      {%- endfor -%}
-    </div>
+    <div class="nav__mobile" id="navMobile">{{ nav_links }}</div>
   </div>
 </header>
 

@@ -3,10 +3,30 @@
 An Online Store 2.0 (section-based) Shopify theme for the BlackPeak better-for-you
 soda brand. Converted from the static marketing site in the parent folder.
 
-> **Heads up:** A Shopify theme renders **products, collections, and pages that
-> live in your Shopify admin** — it can't ship them. The theme below references
-> those entities; you create them once in admin (steps 2–4) and everything wires
-> up. Until then, the storefront renders but product/shop areas will be empty.
+Validated with Shopify's official `theme check` linter — **0 errors**.
+
+---
+
+## ⚡ Why your store looks empty after uploading (READ FIRST)
+
+**The upload working but the store looking empty/bare is normal — and expected.**
+A Shopify theme is a *skin*. It renders **products, collections, pages, and menus
+that live in your Shopify admin** — it cannot create them. Out of the box:
+
+| What you see | Why | Fix |
+|---|---|---|
+| ✅ Homepage looks full | All homepage sections ship with demo content + the bundled can images | Nothing — it just works |
+| ⛔ "Shop" page is empty | You have no products yet | Create products + a "Shop" collection (step 4) |
+| ⛔ About / Flavors / FAQ are 404 | Those pages don't exist yet | Create 3 pages and assign templates (step 3) |
+| ⛔ Nav has only fallback links | No menu is linked yet | Create & link a menu (step 2) |
+
+**Fastest path to a full-looking store (≈10 min):** do steps 2 → 3 → 4 → 5 below.
+The theme already shows fallback navigation and demo homepage content so it never
+looks broken — but the Shop/About/FAQ areas need the content above to come alive.
+
+> Tip: click **Actions → Preview** on the theme, or **Publish** it, to see it live.
+> A brand-new store with no products will always show an empty Shop until you add
+> products — that is Shopify, not the theme.
 
 ---
 
