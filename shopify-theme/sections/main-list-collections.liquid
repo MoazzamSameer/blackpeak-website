@@ -11,7 +11,7 @@
         <a href="{{ collection.url }}" class="flavor-card reveal" style="background: var(--brand-cream); text-decoration: none;">
           <div class="flavor-card__can" style="height: 220px;">
             {%- if collection.featured_image -%}
-              <img src="{{ collection.featured_image | image_url: width: 600 }}" alt="{{ collection.title | escape }}" loading="lazy" />
+              <img src="{{ collection.featured_image | image_url: width: 600 }}" width="600" height="{{ 600 | divided_by: collection.featured_image.aspect_ratio | round }}" alt="{{ collection.title | escape }}" loading="lazy" />
             {%- endif -%}
           </div>
           <h3 class="flavor-card__name" style="font-size: 26px;">{{ collection.title }}</h3>

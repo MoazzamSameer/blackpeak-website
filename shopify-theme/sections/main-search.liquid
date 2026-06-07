@@ -18,9 +18,9 @@
           {%- for item in search.results -%}
             <article class="product reveal">
               {%- if item.featured_image -%}
-                <a href="{{ item.url }}" class="product__media"><img src="{{ item.featured_image | image_url: width: 600 }}" alt="{{ item.title | escape }}" loading="lazy" /></a>
+                <a href="{{ item.url }}" class="product__media"><img src="{{ item.featured_image | image_url: width: 600 }}" width="600" height="{{ 600 | divided_by: item.featured_image.aspect_ratio | round }}" alt="{{ item.title | escape }}" loading="lazy" /></a>
               {%- elsif item.image -%}
-                <a href="{{ item.url }}" class="product__media"><img src="{{ item.image | image_url: width: 600 }}" alt="{{ item.title | escape }}" loading="lazy" /></a>
+                <a href="{{ item.url }}" class="product__media"><img src="{{ item.image | image_url: width: 600 }}" width="600" height="{{ 600 | divided_by: item.image.aspect_ratio | round }}" alt="{{ item.title | escape }}" loading="lazy" /></a>
               {%- endif -%}
               <h3 class="product__name"><a href="{{ item.url }}" style="color: inherit;">{{ item.title }}</a></h3>
               {%- if item.object_type == 'product' -%}

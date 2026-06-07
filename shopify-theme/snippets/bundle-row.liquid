@@ -6,9 +6,9 @@
   <div class="bundle-row bundle-row--{{ theme }}">
     <div class="bundle-row__can">
       {%- if product.featured_image != blank -%}
-        <img src="{{ product.featured_image | image_url: width: 200 }}" alt="{{ product.title | escape }}" />
+        <img src="{{ product.featured_image | image_url: width: 200 }}" width="200" height="{{ 200 | divided_by: product.featured_image.aspect_ratio | round }}" alt="{{ product.title | escape }}" />
       {%- else -%}
-        <img src="{{ fallback | asset_url }}" alt="{{ product.title | escape }}" />
+        <img src="{{ fallback | asset_url }}" width="800" height="800" alt="{{ product.title | escape }}" />
       {%- endif -%}
     </div>
     <div class="bundle-row__info">

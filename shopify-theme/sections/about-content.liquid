@@ -14,9 +14,9 @@
       {%- capture image_col -%}
         <div class="reveal" style="aspect-ratio: 4/5; background: var(--{{ section.settings.theme }}-bg); border-radius: var(--radius-card); border: 2px solid var(--brand-ink); display: flex; align-items: center; justify-content: center; position: relative; overflow: hidden;">
           {%- if section.settings.image != blank -%}
-            <img src="{{ section.settings.image | image_url: width: 800 }}" alt="{{ section.settings.image_alt }}" style="height: 88%; filter: drop-shadow(0 30px 60px rgba(14,42,26,0.4));" />
+            <img src="{{ section.settings.image | image_url: width: 800 }}" width="800" height="{{ 800 | divided_by: section.settings.image.aspect_ratio | round }}" alt="{{ section.settings.image_alt }}" style="height: 88%; filter: drop-shadow(0 30px 60px rgba(14,42,26,0.4));" />
           {%- else -%}
-            <img src="{{ section.settings.default_can | asset_url }}" alt="{{ section.settings.image_alt }}" style="height: 88%; filter: drop-shadow(0 30px 60px rgba(14,42,26,0.4));" />
+            <img src="{{ section.settings.default_can | asset_url }}" width="800" height="800" alt="{{ section.settings.image_alt }}" style="height: 88%; filter: drop-shadow(0 30px 60px rgba(14,42,26,0.4));" />
           {%- endif -%}
         </div>
       {%- endcapture -%}

@@ -12,41 +12,43 @@
     {%- if collection.products.size == 0 -%}
       <p style="text-align: center; padding: 60px 0;">{{ 'collections.general.no_matches' | t }}</p>
     {%- else -%}
-      <div class="shop__grid">
-        {%- for product in collection.products -%}
-          {%- assign theme = product.metafields.blackpeak.theme | default: 'apple' -%}
-          <article class="product product--{{ theme }} reveal">
-            {%- if product.compare_at_price > product.price -%}
-              <span class="product__tag">Sale</span>
-            {%- elsif product.tags contains 'bestseller' -%}
-              <span class="product__tag">Bestseller</span>
-            {%- endif -%}
-            <a href="{{ product.url }}" class="product__media" style="text-decoration: none;">
-              {%- if product.featured_image != blank -%}
-                <img src="{{ product.featured_image | image_url: width: 600 }}" alt="{{ product.featured_image.alt | default: product.title }}" loading="lazy" />
+      {%- paginate collection.products by 12 -%}
+        <div class="shop__grid">
+          {%- for product in collection.products -%}
+            {%- assign theme = product.metafields.blackpeak.theme | default: 'apple' -%}
+            <article class="product product--{{ theme }} reveal">
+              {%- if product.compare_at_price > product.price -%}
+                <span class="product__tag">Sale</span>
+              {%- elsif product.tags contains 'bestseller' -%}
+                <span class="product__tag">Bestseller</span>
               {%- endif -%}
-            </a>
-            <h3 class="product__name"><a href="{{ product.url }}" style="color: inherit;">{{ product.title }}</a></h3>
-            <p class="product__sub">{{ product.description | strip_html | truncate: 60 }}</p>
-            <p class="product__price">{{ product.price | money }}</p>
-            <form method="post" action="/cart/add" data-product-form>
-              <input type="hidden" name="id" value="{{ product.selected_or_first_available_variant.id }}" />
-              <button type="submit" class="btn btn--{{ theme }} product__btn" data-add="{{ product.title | escape }}">
-                {%- if product.selected_or_first_available_variant.available -%}
-                  {{ 'products.product.add_to_cart' | t }}
-                {%- else -%}
-                  {{ 'products.product.sold_out' | t }}
+              <a href="{{ product.url }}" class="product__media" style="text-decoration: none;">
+                {%- if product.featured_image != blank -%}
+                  <img src="{{ product.featured_image | image_url: width: 600 }}" width="600" height="{{ 600 | divided_by: product.featured_image.aspect_ratio | round }}" alt="{{ product.featured_image.alt | default: product.title | escape }}" loading="lazy" />
                 {%- endif -%}
-              </button>
-            </form>
-          </article>
-        {%- endfor -%}
-      </div>
-      {%- if paginate.pages > 1 -%}
-        <div style="text-align: center; margin-top: 48px;">
-          {{ paginate | default_pagination }}
+              </a>
+              <h3 class="product__name"><a href="{{ product.url }}" style="color: inherit;">{{ product.title }}</a></h3>
+              <p class="product__sub">{{ product.description | strip_html | truncate: 60 }}</p>
+              <p class="product__price">{{ product.price | money }}</p>
+              <form method="post" action="{{ routes.cart_add_url }}" data-product-form>
+                <input type="hidden" name="id" value="{{ product.selected_or_first_available_variant.id }}" />
+                <button type="submit" class="btn btn--{{ theme }} product__btn" data-add="{{ product.title | escape }}">
+                  {%- if product.selected_or_first_available_variant.available -%}
+                    {{ 'products.product.add_to_cart' | t }}
+                  {%- else -%}
+                    {{ 'products.product.sold_out' | t }}
+                  {%- endif -%}
+                </button>
+              </form>
+            </article>
+          {%- endfor -%}
         </div>
-      {%- endif -%}
+        {%- if paginate.pages > 1 -%}
+          <div style="text-align: center; margin-top: 48px;">
+            {{ paginate | default_pagination }}
+          </div>
+        {%- endif -%}
+      {%- endpaginate -%}
     {%- endif -%}
   </div>
 </section>

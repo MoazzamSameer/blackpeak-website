@@ -3,7 +3,7 @@
     <div class="product-page__grid" style="display: grid; grid-template-columns: 1fr 1fr; gap: 60px; align-items: center;">
       <div>
         {%- if product.featured_image != blank -%}
-          <img src="{{ product.featured_image | image_url: width: 800 }}" alt="{{ product.featured_image.alt | default: product.title }}" style="max-width: 100%; height: auto; filter: drop-shadow(0 30px 60px rgba(23, 58, 35, 0.4));" />
+          <img src="{{ product.featured_image | image_url: width: 800 }}" width="800" height="{{ 800 | divided_by: product.featured_image.aspect_ratio | round }}" alt="{{ product.featured_image.alt | default: product.title }}" style="max-width: 100%; height: auto; filter: drop-shadow(0 30px 60px rgba(23, 58, 35, 0.4));" />
         {%- endif -%}
       </div>
       <div>
